@@ -1,0 +1,181 @@
+<?xml version='1.0'?>
+<!DOCTYPE signatures SYSTEM "file://localhost/System/Library/DTDs/BridgeSupport.dtd">
+<signatures version='1.0'>
+<depends_on path='/System/Library/Frameworks/Foundation.framework'/>
+<depends_on path='/System/Library/Frameworks/OpenDirectory.framework/Versions/A/Frameworks/CFOpenDirectory.framework'/>
+<depends_on path='/System/Library/Frameworks/CoreFoundation.framework'/>
+<constant name='ODFrameworkErrorDomain' type='@'/>
+<constant name='ODSessionProxyAddress' type='@'/>
+<constant name='ODSessionProxyPassword' type='@'/>
+<constant name='ODSessionProxyPort' type='@'/>
+<constant name='ODSessionProxyUsername' type='@'/>
+<class name='ODNode'>
+<method selector='createRecordWithRecordType:name:attributes:error:'>
+<arg type_modifier='n' index='0'/>
+<arg type_modifier='o' index='3'/>
+</method>
+<method selector='customCall:sendData:error:'>
+<arg type_modifier='o' index='2'/>
+</method>
+<method selector='initWithSession:name:error:'>
+<arg type_modifier='o' index='2'/>
+</method>
+<method selector='initWithSession:type:error:'>
+<arg type_modifier='o' index='2'/>
+</method>
+<method selector='nodeDetailsForKeys:error:'>
+<arg type_modifier='o' index='1'/>
+</method>
+<method selector='nodeWithSession:name:error:' class_method='true'>
+<arg type_modifier='o' index='2'/>
+</method>
+<method selector='nodeWithSession:type:error:' class_method='true'>
+<arg type_modifier='o' index='2'/>
+</method>
+<method selector='recordWithRecordType:name:attributes:error:'>
+<arg type_modifier='n' index='0'/>
+<arg type_modifier='o' index='3'/>
+</method>
+<method selector='setCredentialsUsingKerberosCache:error:'>
+<arg type_modifier='o' index='1'/>
+<retval type='B'/>
+</method>
+<method selector='setCredentialsWithRecordType:authenticationType:authenticationItems:continueItems:context:error:'>
+<arg type_modifier='n' index='0'/>
+<arg type_modifier='n' index='1'/>
+<arg type_modifier='n' index='3'/>
+<arg type_modifier='n' index='4'/>
+<arg type_modifier='o' index='5'/>
+<retval type='B'/>
+</method>
+<method selector='setCredentialsWithRecordType:recordName:password:error:'>
+<arg type_modifier='n' index='0'/>
+<arg type_modifier='o' index='3'/>
+<retval type='B'/>
+</method>
+<method selector='subnodeNamesAndReturnError:'>
+<arg type_modifier='o' index='0'/>
+</method>
+<method selector='supportedAttributesForRecordType:error:'>
+<arg type_modifier='n' index='0'/>
+<arg type_modifier='o' index='1'/>
+</method>
+<method selector='supportedRecordTypesAndReturnError:'>
+<arg type_modifier='o' index='0'/>
+</method>
+<method selector='unreachableSubnodeNamesAndReturnError:'>
+<arg type_modifier='o' index='0'/>
+</method>
+</class>
+<class name='ODQuery'>
+<method selector='initWithNode:forRecordTypes:attribute:matchType:queryValues:returnAttributes:maximumResults:error:'>
+<arg type_modifier='n' index='2'/>
+<arg type_modifier='o' index='7'/>
+</method>
+<method selector='queryWithNode:forRecordTypes:attribute:matchType:queryValues:returnAttributes:maximumResults:error:' class_method='true'>
+<arg type_modifier='n' index='2'/>
+<arg type_modifier='o' index='7'/>
+</method>
+<method selector='resultsAllowingPartial:error:'>
+<arg index='0' type='B'/>
+<arg type_modifier='o' index='1'/>
+</method>
+</class>
+<class name='ODRecord'>
+<method selector='addMemberRecord:error:'>
+<arg type_modifier='o' index='1'/>
+<retval type='B'/>
+</method>
+<method selector='addValue:toAttribute:error:'>
+<arg type_modifier='n' index='1'/>
+<arg type_modifier='o' index='2'/>
+<retval type='B'/>
+</method>
+<method selector='changePassword:toPassword:error:'>
+<arg type_modifier='o' index='2'/>
+<retval type='B'/>
+</method>
+<method selector='deleteRecordAndReturnError:'>
+<arg type_modifier='o' index='0'/>
+<retval type='B'/>
+</method>
+<method selector='isMemberRecord:error:'>
+<arg type_modifier='o' index='1'/>
+<retval type='B'/>
+</method>
+<method selector='passwordPolicyAndReturnError:'>
+<arg type_modifier='o' index='0'/>
+</method>
+<method selector='recordDetailsForAttributes:error:'>
+<arg type_modifier='o' index='1'/>
+</method>
+<method selector='removeMemberRecord:error:'>
+<arg type_modifier='o' index='1'/>
+<retval type='B'/>
+</method>
+<method selector='removeValue:fromAttribute:error:'>
+<arg type_modifier='n' index='1'/>
+<arg type_modifier='o' index='2'/>
+<retval type='B'/>
+</method>
+<method selector='removeValuesForAttribute:error:'>
+<arg type_modifier='n' index='0'/>
+<arg type_modifier='o' index='1'/>
+<retval type='B'/>
+</method>
+<method selector='setNodeCredentials:password:error:'>
+<arg type_modifier='o' index='2'/>
+<retval type='B'/>
+</method>
+<method selector='setNodeCredentialsUsingKerberosCache:error:'>
+<arg type_modifier='o' index='1'/>
+<retval type='B'/>
+</method>
+<method selector='setNodeCredentialsWithRecordType:authenticationType:authenticationItems:continueItems:context:error:'>
+<arg type_modifier='n' index='0'/>
+<arg type_modifier='n' index='1'/>
+<arg type_modifier='o' index='3'/>
+<arg type_modifier='o' index='4'/>
+<arg type_modifier='o' index='5'/>
+<retval type='B'/>
+</method>
+<method selector='setValue:forAttribute:error:'>
+<arg type_modifier='n' index='1'/>
+<arg type_modifier='o' index='2'/>
+<retval type='B'/>
+</method>
+<method selector='synchronizeAndReturnError:'>
+<arg type_modifier='o' index='0'/>
+<retval type='B'/>
+</method>
+<method selector='valuesForAttribute:error:'>
+<arg type_modifier='n' index='0'/>
+<arg type_modifier='o' index='1'/>
+</method>
+<method selector='verifyExtendedWithAuthenticationType:authenticationItems:continueItems:context:error:'>
+<arg type_modifier='n' index='0'/>
+<arg type_modifier='o' index='2'/>
+<arg type_modifier='o' index='3'/>
+<arg type_modifier='o' index='4'/>
+<retval type='B'/>
+</method>
+<method selector='verifyPassword:error:'>
+<arg type_modifier='o' index='1'/>
+<retval type='B'/>
+</method>
+</class>
+<class name='ODSession'>
+<method selector='initWithOptions:error:'>
+<arg type_modifier='o' index='1'/>
+</method>
+<method selector='nodeNamesAndReturnError:'>
+<arg type_modifier='o' index='0'/>
+</method>
+<method selector='sessionWithOptions:error:' class_method='true'>
+<arg type_modifier='o' index='1'/>
+</method>
+</class>
+<informal_protocol name='ODQueryDelegate'>
+<method selector='query:foundResults:error:' type64='v40@0:8@16@24@32' type='v20@0:4@8@12@16'/>
+</informal_protocol>
+</signatures>
