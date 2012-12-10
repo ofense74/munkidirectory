@@ -27,6 +27,7 @@
     group = [NSString stringWithString:inGroup];
     NSLog(@"Got group %@ to handle", group);
     arrInstalls = [inDict objectForKey:@"managed_installs"];
+    NSLog(@"ArrInstalls:\n%@", arrInstalls);
     arrUninstalls = [inDict objectForKey:@"managed_unistalls"];
     arrOptionals = [inDict objectForKey:@"optional_installs"];
     arrManifests = [inDict objectForKey:@"included_manifests"];
