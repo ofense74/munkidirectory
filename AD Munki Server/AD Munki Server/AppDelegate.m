@@ -10,10 +10,11 @@
 
 @implementation AppDelegate
 
+@synthesize util;
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    mainWindowController = [[MainWindowController alloc] initWithWindowNibName:@"MainMenu"];
-    [mainWindowController showWindow:self];
+    util = [[PlistUtil alloc] initPlistUtil];
 }
 
 @end
