@@ -7,11 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "PlistUtil.h"
+#import "MainWindowController.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate> {
+    
+    MainWindowController *mainWindowController;
+    
+}
 
-@property (strong) PlistUtil *util;
 
 @property (assign) IBOutlet NSWindow *window;
 
