@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6380B151676575700E706C5 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6380B141676575700E706C5 /* MainWindowController.m */; };
 		B6F9DBB71670F13A002E8CAF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6F9DBB61670F13A002E8CAF /* Cocoa.framework */; };
 		B6F9DBC11670F13A002E8CAF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B6F9DBBF1670F13A002E8CAF /* InfoPlist.strings */; };
 		B6F9DBC31670F13A002E8CAF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F9DBC21670F13A002E8CAF /* main.m */; };
@@ -21,6 +22,8 @@
 		B6F9DBF61670F18D002E8CAF /* ConditionRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F9DBED1670F18D002E8CAF /* ConditionRecord.m */; };
 		B6F9DBF81670F18D002E8CAF /* DirectoryUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F9DBF11670F18D002E8CAF /* DirectoryUtil.m */; };
 		B6F9DBF91670F18D002E8CAF /* PlistUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F9DBF31670F18D002E8CAF /* PlistUtil.m */; };
+		B6FEC9C1167A3DC900A81F20 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6FEC9C0167A3DC900A81F20 /* MainWindow.xib */; };
+		B6FEC9C9167A4E0F00A81F20 /* OptionRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FEC9C8167A4E0F00A81F20 /* OptionRecord.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B6380B131676575700E706C5 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
+		B6380B141676575700E706C5 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
 		B6F9DBB21670F13A002E8CAF /* AD Munki Server.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AD Munki Server.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6F9DBB61670F13A002E8CAF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B6F9DBB91670F13A002E8CAF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -60,6 +65,9 @@
 		B6F9DBF11670F18D002E8CAF /* DirectoryUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectoryUtil.m; sourceTree = "<group>"; };
 		B6F9DBF21670F18D002E8CAF /* PlistUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistUtil.h; sourceTree = "<group>"; };
 		B6F9DBF31670F18D002E8CAF /* PlistUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistUtil.m; sourceTree = "<group>"; };
+		B6FEC9C0167A3DC900A81F20 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		B6FEC9C7167A4E0F00A81F20 /* OptionRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionRecord.h; sourceTree = "<group>"; };
+		B6FEC9C8167A4E0F00A81F20 /* OptionRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionRecord.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,10 +140,15 @@
 				B6F9DBCB1670F13A002E8CAF /* MainMenu.xib */,
 				B6F9DBEC1670F18D002E8CAF /* ConditionRecord.h */,
 				B6F9DBED1670F18D002E8CAF /* ConditionRecord.m */,
+				B6FEC9C7167A4E0F00A81F20 /* OptionRecord.h */,
+				B6FEC9C8167A4E0F00A81F20 /* OptionRecord.m */,
 				B6F9DBF01670F18D002E8CAF /* DirectoryUtil.h */,
 				B6F9DBF11670F18D002E8CAF /* DirectoryUtil.m */,
 				B6F9DBF21670F18D002E8CAF /* PlistUtil.h */,
 				B6F9DBF31670F18D002E8CAF /* PlistUtil.m */,
+				B6FEC9C0167A3DC900A81F20 /* MainWindow.xib */,
+				B6380B131676575700E706C5 /* MainWindowController.h */,
+				B6380B141676575700E706C5 /* MainWindowController.m */,
 				B6F9DBBD1670F13A002E8CAF /* Supporting Files */,
 			);
 			path = "AD Munki Server";
@@ -246,6 +259,7 @@
 				B6F9DBC11670F13A002E8CAF /* InfoPlist.strings in Resources */,
 				B6F9DBC71670F13A002E8CAF /* Credits.rtf in Resources */,
 				B6F9DBCD1670F13A002E8CAF /* MainMenu.xib in Resources */,
+				B6FEC9C1167A3DC900A81F20 /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +299,8 @@
 				B6F9DBF61670F18D002E8CAF /* ConditionRecord.m in Sources */,
 				B6F9DBF81670F18D002E8CAF /* DirectoryUtil.m in Sources */,
 				B6F9DBF91670F18D002E8CAF /* PlistUtil.m in Sources */,
+				B6380B151676575700E706C5 /* MainWindowController.m in Sources */,
+				B6FEC9C9167A4E0F00A81F20 /* OptionRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +492,7 @@
 				B6F9DBE61670F13A002E8CAF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B6F9DBE71670F13A002E8CAF /* Build configuration list for PBXNativeTarget "AD Munki ServerTests" */ = {
 			isa = XCConfigurationList;
@@ -484,6 +501,7 @@
 				B6F9DBE91670F13A002E8CAF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

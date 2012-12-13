@@ -55,14 +55,12 @@
     
     for (NSMutableDictionary *dict in conditions) {
         if ([[dict valueForKey:@"condition"] isEqualToString:condString]) {
-            NSLog(@"Found similarity for: %@", inGroup);
             ConditionRecord *cond = [[ConditionRecord alloc] initConditionForDictionary:dict group:inGroup];
             return cond;
         }
     }
 
     ConditionRecord *newCond = [self createNewCond:inGroup];
-    NSLog(@"New record for: %@", inGroup);
     
     return newCond;
     

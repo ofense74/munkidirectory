@@ -15,41 +15,46 @@
 @synthesize uninstalls;
 @synthesize optional;
 @synthesize manifests;
-@synthesize arrInstalls;
-@synthesize arrUninstalls;
-@synthesize arrOptionals;
-@synthesize arrManifests;
+@synthesize optInstalls;
+@synthesize optUninstalls;
+@synthesize optOptionals;
+@synthesize optManifests;
 
 - (ConditionRecord *)initConditionForDictionary:(NSDictionary *)inDict group:(NSString *)inGroup {
     
     self = [super init];
 
-    group = [NSString stringWithString:inGroup];
-    NSLog(@"Got group %@ to handle", group);
-    arrInstalls = [inDict objectForKey:@"managed_installs"];
-    arrUninstalls = [inDict objectForKey:@"managed_unistalls"];
-    arrOptionals = [inDict objectForKey:@"optional_installs"];
-    arrManifests = [inDict objectForKey:@"included_manifests"];
+    group = inGroup;
     
-    installs = [self arrayToString:arrInstalls];
-    uninstalls = [self arrayToString:arrUninstalls];
-    optional = [self arrayToString:arrOptionals];
-    manifests = [self arrayToString:arrManifests];
+    arrInstalls = [inDict objectForKey:@"managed_installs"];
+    optInstalls = [self makeOptArrayFromArray:arrInstalls];
+    
+    arrUninstalls = [inDict objectForKey:@"managed_uninstalls"];
+    optUninstalls = [self makeOptArrayFromArray:arrUninstalls];
+    
+    arrOptionals = [inDict objectForKey:@"optional_installs"];
+    optOptionals = [self makeOptArrayFromArray:arrOptionals];
+    
+    arrManifests = [inDict objectForKey:@"included_manifests"];
+    optManifests = [self makeOptArrayFromArray:arrManifests];
+    
     
     return self;
     
     
 }
 
-
-- (NSString *)arrayToString:(NSArray *)inArray {
+- (NSMutableArray *)makeOptArrayFromArray:(NSArray *)inArray {
     
-    NSMutableString *temp = [NSMutableString string];
-    for (NSString *loopTemp in inArray) {
-        [temp appendString:loopTemp];
-        [temp appendString:@" "];
+    NSMutableArray *toReturn = [NSMutableArray array];
+    for (NSString *temp in inArray) {
+        
+        OptionRecord *tempOpt = [[OptionRecord alloc] initWithOption:temp];
+        [toReturn addObject:tempOpt];
     }
-    return temp;
+    return toReturn;
+    
 }
+
 
 @end

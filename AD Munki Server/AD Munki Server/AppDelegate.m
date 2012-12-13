@@ -14,7 +14,11 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    util = [[PlistUtil alloc] initPlistUtil];
+
+    controller = [[MainWindowController alloc] initWithWindowNibName:@"MainWindow"];
+    [controller showWindow:self];
+    
 }
+
 
 @end

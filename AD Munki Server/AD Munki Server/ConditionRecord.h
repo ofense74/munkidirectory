@@ -7,8 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "OptionRecord.h"
 
 @interface ConditionRecord : NSObject {
+@private
+    NSArray *arrInstalls;
+    NSArray *arrUninstalls;
+    NSArray *arrOptionals;
+    NSArray *arrManifests;
     
     
 }
@@ -20,9 +26,9 @@
 @property (copy) NSString *uninstalls;
 @property (copy) NSString *optional;
 @property (copy) NSString *manifests;
-@property (copy) NSArray *arrInstalls;
-@property (copy) NSArray *arrUninstalls;
-@property (copy) NSArray *arrOptionals;
-@property (copy) NSArray *arrManifests;
+@property (copy) NSArray *optInstalls;
+@property (copy) NSArray *optUninstalls;
+@property (copy) NSArray *optOptionals;
+@property (copy) NSArray *optManifests;
 
 @end
