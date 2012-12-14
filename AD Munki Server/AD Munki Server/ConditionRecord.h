@@ -20,6 +20,7 @@
 }
 
 - (ConditionRecord *)initConditionForDictionary:(NSDictionary *)inDict group:(NSString *)inGroup;
+- (NSArray *)makeStringArrayFromArray:(NSMutableArray *)inOptionArray;
 
 @property (copy) NSString *group;
 @property (copy) NSString *installs;

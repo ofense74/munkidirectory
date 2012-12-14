@@ -83,4 +83,11 @@
     
 }
 
+- (void)putArrToPlist:(NSMutableArray *)inArray {
+    
+    NSMutableDictionary *toPlist = [NSMutableDictionary dictionaryWithObject:inArray forKey:@"conditional_items"];
+    [toPlist writeToFile:filePath atomically:NO];
+    
+}
+
 @end

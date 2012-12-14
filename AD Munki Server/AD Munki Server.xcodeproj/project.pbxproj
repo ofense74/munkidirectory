@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B6380B151676575700E706C5 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6380B141676575700E706C5 /* MainWindowController.m */; };
+		B6CE1849167A6C7D00E116FD /* Ballmer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6CE1848167A6C7D00E116FD /* Ballmer.jpg */; };
+		B6CE184C167A6E0B00E116FD /* myicon.icns in Resources */ = {isa = PBXBuildFile; fileRef = B6CE184B167A6E0B00E116FD /* myicon.icns */; };
+		B6CE184E167A6E3000E116FD /* myicon.icns in Resources */ = {isa = PBXBuildFile; fileRef = B6CE184D167A6E3000E116FD /* myicon.icns */; };
 		B6F9DBB71670F13A002E8CAF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6F9DBB61670F13A002E8CAF /* Cocoa.framework */; };
 		B6F9DBC11670F13A002E8CAF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B6F9DBBF1670F13A002E8CAF /* InfoPlist.strings */; };
 		B6F9DBC31670F13A002E8CAF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F9DBC21670F13A002E8CAF /* main.m */; };
@@ -39,6 +42,9 @@
 /* Begin PBXFileReference section */
 		B6380B131676575700E706C5 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
 		B6380B141676575700E706C5 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
+		B6CE1848167A6C7D00E116FD /* Ballmer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ballmer.jpg; sourceTree = "<group>"; };
+		B6CE184B167A6E0B00E116FD /* myicon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = myicon.icns; sourceTree = "<group>"; };
+		B6CE184D167A6E3000E116FD /* myicon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = myicon.icns; sourceTree = "<group>"; };
 		B6F9DBB21670F13A002E8CAF /* AD Munki Server.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AD Munki Server.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6F9DBB61670F13A002E8CAF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B6F9DBB91670F13A002E8CAF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -95,6 +101,8 @@
 		B6F9DBA71670F13A002E8CAF = {
 			isa = PBXGroup;
 			children = (
+				B6CE184B167A6E0B00E116FD /* myicon.icns */,
+				B6CE1848167A6C7D00E116FD /* Ballmer.jpg */,
 				B6F9DBBC1670F13A002E8CAF /* AD Munki Server */,
 				B6F9DBD91670F13A002E8CAF /* AD Munki ServerTests */,
 				B6F9DBB51670F13A002E8CAF /* Frameworks */,
@@ -159,6 +167,7 @@
 			children = (
 				B6F9DBBE1670F13A002E8CAF /* AD Munki Server-Info.plist */,
 				B6F9DBBF1670F13A002E8CAF /* InfoPlist.strings */,
+				B6CE184D167A6E3000E116FD /* myicon.icns */,
 				B6F9DBC21670F13A002E8CAF /* main.m */,
 				B6F9DBC41670F13A002E8CAF /* AD Munki Server-Prefix.pch */,
 				B6F9DBC51670F13A002E8CAF /* Credits.rtf */,
@@ -260,6 +269,9 @@
 				B6F9DBC71670F13A002E8CAF /* Credits.rtf in Resources */,
 				B6F9DBCD1670F13A002E8CAF /* MainMenu.xib in Resources */,
 				B6FEC9C1167A3DC900A81F20 /* MainWindow.xib in Resources */,
+				B6CE1849167A6C7D00E116FD /* Ballmer.jpg in Resources */,
+				B6CE184C167A6E0B00E116FD /* myicon.icns in Resources */,
+				B6CE184E167A6E3000E116FD /* myicon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

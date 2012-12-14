@@ -56,5 +56,17 @@
     
 }
 
+- (NSArray *)makeStringArrayFromArray:(NSMutableArray *)inOptionArray {
+    
+    NSMutableArray *toReturn = [NSMutableArray array];
+    for (OptionRecord *temp in inOptionArray) {
+        
+        [toReturn addObject:temp.option];
+        
+    }
+    return toReturn;
+    
+}
+
 
 @end
