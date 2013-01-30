@@ -84,9 +84,36 @@
 }
 
 - (void)putArrToPlist:(NSMutableArray *)inArray {
+    //Stringify the Optionrecords
+    NSMutableArray *stringedArray = [NSMutableArray array];
+    for (ConditionRecord *dict in inArray) {
+        NSMutableDictionary *newDict = [NSMutableDictionary dictionaryWithObject:[NSString stringWithFormat:@"ad_group_membership == \"%@\"", dict.group]
+                                                                          forKey:@"condition"];
+        if ([dict.optInstalls count] > 0)
+            [newDict setObject:[dict makeStringArrayFromArray:dict.optInstalls] forKey:@"managed_installs"];
+        if ([dict.optUninstalls count] > 0)
+            [newDict setObject:[dict makeStringArrayFromArray:dict.optUninstalls] forKey:@"managed_uninstalls"];
+        if ([dict.optOptionals count] > 0)
+            [newDict setObject:[dict makeStringArrayFromArray:dict.optOptionals] forKey:@"optional_installs"];
+        if ([dict.optManifests count] > 0)
+            [newDict setObject:[dict makeStringArrayFromArray:dict.optManifests] forKey:@"included_manifests"];
+        
+        [stringedArray addObject:newDict];
+        
+    }
     
-    NSMutableDictionary *toPlist = [NSMutableDictionary dictionaryWithObject:inArray forKey:@"conditional_items"];
-    [toPlist writeToFile:filePath atomically:NO];
+    
+    NSMutableDictionary *toPlist = [NSMutableDictionary dictionaryWithObject:stringedArray forKey:@"conditional_items"];
+    
+    NSOutputStream *outStream = [NSOutputStream outputStreamToFileAtPath:filePath append:NO];
+    NSError *err;
+    [outStream open];
+    [NSPropertyListSerialization writePropertyList:toPlist
+                                          toStream:outStream
+                                            format:NSPropertyListXMLFormat_v1_0
+                                           options:0
+                                             error:&err];
+    [outStream close];
     
 }
 

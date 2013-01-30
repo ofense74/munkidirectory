@@ -11,10 +11,6 @@
 @implementation ConditionRecord
 
 @synthesize group;
-@synthesize installs;
-@synthesize uninstalls;
-@synthesize optional;
-@synthesize manifests;
 @synthesize optInstalls;
 @synthesize optUninstalls;
 @synthesize optOptionals;
@@ -25,6 +21,7 @@
     self = [super init];
 
     group = inGroup;
+    NSLog(@"Group Name: %@", inGroup);
     
     arrInstalls = [inDict objectForKey:@"managed_installs"];
     optInstalls = [self makeOptArrayFromArray:arrInstalls];
@@ -56,7 +53,7 @@
     
 }
 
-- (NSArray *)makeStringArrayFromArray:(NSMutableArray *)inOptionArray {
+- (NSArray *)makeStringArrayFromArray:(NSArray *)inOptionArray {
     
     NSMutableArray *toReturn = [NSMutableArray array];
     for (OptionRecord *temp in inOptionArray) {
@@ -67,6 +64,7 @@
     return toReturn;
     
 }
+
 
 
 @end

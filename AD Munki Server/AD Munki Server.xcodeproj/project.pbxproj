@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B6380B151676575700E706C5 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6380B141676575700E706C5 /* MainWindowController.m */; };
+		B6A3F4B216B9803700662942 /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A3F4B016B9803700662942 /* PreferencesWindowController.m */; };
+		B6A3F4B316B9803700662942 /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6A3F4B116B9803700662942 /* PreferencesWindowController.xib */; };
 		B6CE1849167A6C7D00E116FD /* Ballmer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6CE1848167A6C7D00E116FD /* Ballmer.jpg */; };
 		B6CE184C167A6E0B00E116FD /* myicon.icns in Resources */ = {isa = PBXBuildFile; fileRef = B6CE184B167A6E0B00E116FD /* myicon.icns */; };
 		B6CE184E167A6E3000E116FD /* myicon.icns in Resources */ = {isa = PBXBuildFile; fileRef = B6CE184D167A6E3000E116FD /* myicon.icns */; };
@@ -42,6 +44,9 @@
 /* Begin PBXFileReference section */
 		B6380B131676575700E706C5 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
 		B6380B141676575700E706C5 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
+		B6A3F4AF16B9803700662942 /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
+		B6A3F4B016B9803700662942 /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
+		B6A3F4B116B9803700662942 /* PreferencesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindowController.xib; sourceTree = "<group>"; };
 		B6CE1848167A6C7D00E116FD /* Ballmer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ballmer.jpg; sourceTree = "<group>"; };
 		B6CE184B167A6E0B00E116FD /* myicon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = myicon.icns; sourceTree = "<group>"; };
 		B6CE184D167A6E3000E116FD /* myicon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = myicon.icns; sourceTree = "<group>"; };
@@ -154,6 +159,9 @@
 				B6F9DBF11670F18D002E8CAF /* DirectoryUtil.m */,
 				B6F9DBF21670F18D002E8CAF /* PlistUtil.h */,
 				B6F9DBF31670F18D002E8CAF /* PlistUtil.m */,
+				B6A3F4AF16B9803700662942 /* PreferencesWindowController.h */,
+				B6A3F4B016B9803700662942 /* PreferencesWindowController.m */,
+				B6A3F4B116B9803700662942 /* PreferencesWindowController.xib */,
 				B6FEC9C0167A3DC900A81F20 /* MainWindow.xib */,
 				B6380B131676575700E706C5 /* MainWindowController.h */,
 				B6380B141676575700E706C5 /* MainWindowController.m */,
@@ -272,6 +280,7 @@
 				B6CE1849167A6C7D00E116FD /* Ballmer.jpg in Resources */,
 				B6CE184C167A6E0B00E116FD /* myicon.icns in Resources */,
 				B6CE184E167A6E3000E116FD /* myicon.icns in Resources */,
+				B6A3F4B316B9803700662942 /* PreferencesWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +322,7 @@
 				B6F9DBF91670F18D002E8CAF /* PlistUtil.m in Sources */,
 				B6380B151676575700E706C5 /* MainWindowController.m in Sources */,
 				B6FEC9C9167A4E0F00A81F20 /* OptionRecord.m in Sources */,
+				B6A3F4B216B9803700662942 /* PreferencesWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,12 +14,13 @@
 
 @implementation MainWindowController
 @synthesize arr;
+@synthesize pUtil;
 
 - (id)initWithWindow:(NSWindow *)window
 {
     self = [super initWithWindow:window];
     if (self) {
-        PlistUtil *pUtil = [[PlistUtil alloc] initPlistUtil];
+        pUtil = [[PlistUtil alloc] initPlistUtil];
         arr = [pUtil condRecords];
     }
     
@@ -31,6 +32,12 @@
     [super windowDidLoad];
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+}
+
+- (void)saveState {
+    
+    NSLog(@"Trying to save");
+    [pUtil putArrToPlist:arr];
 }
 
 @end

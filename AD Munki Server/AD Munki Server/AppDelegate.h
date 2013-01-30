@@ -14,6 +14,8 @@
     MainWindowController *controller;
 }
 
-@property (strong) PlistUtil *util;
+
+- (IBAction)Save:(id)sender;
+- (IBAction)Preferences:(id)sender;
 
 @end

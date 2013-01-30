@@ -25,5 +25,6 @@
 @property (weak) IBOutlet NSArrayController *arrayController;
 
 - (PlistUtil *)initPlistUtil;
+- (void)putArrToPlist:(NSMutableArray *)inArray;
 
 @end

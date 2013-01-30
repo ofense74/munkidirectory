@@ -10,13 +10,23 @@
 
 @implementation AppDelegate
 
-@synthesize util;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 
     controller = [[MainWindowController alloc] initWithWindowNibName:@"MainWindow"];
     [controller showWindow:self];
+    
+}
+
+
+- (IBAction)Save:(id)sender {
+    [controller saveState];
+    
+}
+
+- (IBAction)Preferences:(id)sender {
+    
     
 }
 

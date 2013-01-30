@@ -12,5 +12,8 @@
 @interface MainWindowController : NSWindowController
 
 @property (copy) NSMutableArray *arr;
+@property PlistUtil *pUtil;
+
+- (void)saveState;
 
 @end

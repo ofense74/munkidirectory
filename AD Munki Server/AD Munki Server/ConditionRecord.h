@@ -20,13 +20,9 @@
 }
 
 - (ConditionRecord *)initConditionForDictionary:(NSDictionary *)inDict group:(NSString *)inGroup;
-- (NSArray *)makeStringArrayFromArray:(NSMutableArray *)inOptionArray;
+- (NSArray *)makeStringArrayFromArray:(NSArray *)inOptionArray;
 
 @property (copy) NSString *group;
-@property (copy) NSString *installs;
-@property (copy) NSString *uninstalls;
-@property (copy) NSString *optional;
-@property (copy) NSString *manifests;
 @property (copy) NSArray *optInstalls;
 @property (copy) NSArray *optUninstalls;
 @property (copy) NSArray *optOptionals;
