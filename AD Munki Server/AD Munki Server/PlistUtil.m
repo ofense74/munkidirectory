@@ -14,6 +14,7 @@
 @synthesize conditions;
 @synthesize condRecords;
 @synthesize adGroups;
+@synthesize dirUtil;
 
 
 - (PlistUtil *)initPlistUtil {
@@ -22,7 +23,6 @@
     NSURL *dirPath = [NSURL fileURLWithPath:[[NSUserDefaults standardUserDefaults] valueForKey:@"path"]];
     filePath = [dirPath URLByAppendingPathComponent:@"ADConditionManifest"];
     if (![[NSFileManager defaultManager] fileExistsAtPath:[filePath path]]) {
-        NSLog(@"Thinks it's epmpty!");
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         [self writePlist:dict];
     }

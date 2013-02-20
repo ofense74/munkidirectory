@@ -31,12 +31,25 @@
 {
     [super windowDidLoad];
     
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    if (!pUtil.dirUtil) {
+        [NSApp beginSheet:[noAdSheet window]
+           modalForWindow:[self window]
+            modalDelegate:self
+           didEndSelector:@selector(didEndSheet:returnCode:contextInfo:)
+              contextInfo:nil];
+    }
 }
+
 
 - (void)saveState {
     
     [pUtil putArrToPlist:arr];
+}
+
+- (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+    
+    [sheet orderOut:self];
+    [NSApp terminate:nil];
 }
 
 @end

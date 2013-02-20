@@ -12,10 +12,6 @@
 
 @interface PlistUtil : NSObject {
     
-@private
-    DirectoryUtil *dirUtil;
-
-    
 }
 
 @property (copy) NSURL *filePath;
@@ -23,6 +19,7 @@
 @property (copy) NSMutableArray *condRecords; //Array with ConditionRecords
 @property (copy) NSArray *adGroups;
 @property (weak) IBOutlet NSArrayController *arrayController;
+@property DirectoryUtil *dirUtil;
 
 - (PlistUtil *)initPlistUtil;
 - (void)putArrToPlist:(NSMutableArray *)inArray;
