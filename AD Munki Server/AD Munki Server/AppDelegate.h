@@ -8,10 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 #import "MainWindowController.h"
+#import "PreferencesWindowController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
     
     MainWindowController *controller;
+    PreferencesWindowController *prefController;
 }
 
 

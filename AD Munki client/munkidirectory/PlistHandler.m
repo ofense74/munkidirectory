@@ -10,7 +10,7 @@
 
 @implementation PlistHandler
 
-- (void)createPlistFromNames:(NSArray *)names {
+- (void)createPlistFromNames:(NSArray *)names compName:(NSString *)compName nodeName:(NSString *)nodeName {
     
     //Change this to the path given in ManagedInstalls.plist
     NSString *path = @"/Library/Managed Installs/ConditionalItems.plist";
@@ -19,7 +19,9 @@
     
     if (! [[NSFileManager defaultManager] fileExistsAtPath:path]) {
         //Create a new plistfile
-        NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithObject:names forKey:@"ad_group_membersip"];
+        NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithObject:names forKey:@"ad_group_membership"];
+        [dict setObject:compName forKey:@"ad_computer_name"];
+        [dict setObject:nodeName forKey:@"ad_node_name"];
         
         NSOutputStream *output = [NSOutputStream outputStreamToFileAtPath:path append:NO];
         [output open];
@@ -40,7 +42,9 @@
                                                                                format:0
                                                                                 error:&err];
         [inStream close];
-        [fromPlist setObject:names forKey:@"ad_group_membersip"];
+        [fromPlist setObject:names forKey:@"ad_group_membership"];
+        [fromPlist setObject:compName forKey:@"ad_computer_name"];
+        [fromPlist setObject:nodeName forKey:@"ad_node_name"];
         NSOutputStream *outStream = [NSOutputStream outputStreamToFileAtPath:path append:NO];
         [outStream open];
         plist = [NSPropertyListSerialization writePropertyList:(id)fromPlist

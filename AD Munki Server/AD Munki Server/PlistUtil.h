@@ -18,7 +18,7 @@
     
 }
 
-@property (copy) NSString *filePath;
+@property (copy) NSURL *filePath;
 @property (copy) NSMutableArray *conditions; //Array of conditions in Dictionary format
 @property (copy) NSMutableArray *condRecords; //Array with ConditionRecords
 @property (copy) NSArray *adGroups;

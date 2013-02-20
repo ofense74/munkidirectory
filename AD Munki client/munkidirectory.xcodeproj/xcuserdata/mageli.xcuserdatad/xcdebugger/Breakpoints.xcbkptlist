@@ -26,7 +26,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "27"
          endingLineNumber = "27"
-         landmarkName = "-createPlistFromNames:"
+         landmarkName = "-createPlistFromNames:compName:nodeName:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -39,7 +39,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "46"
          endingLineNumber = "46"
-         landmarkName = "-createPlistFromNames:"
+         landmarkName = "-createPlistFromNames:compName:nodeName:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

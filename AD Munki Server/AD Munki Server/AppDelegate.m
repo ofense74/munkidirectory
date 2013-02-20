@@ -13,9 +13,16 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-
-    controller = [[MainWindowController alloc] initWithWindowNibName:@"MainWindow"];
-    [controller showWindow:self];
+    if (![[NSUserDefaults standardUserDefaults] valueForKey:@"path"]) {
+        if (!prefController) {
+            prefController = [[PreferencesWindowController alloc] initWithWindowNibName:@"PreferencesWindowController"];
+            [prefController showWindow:self];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotPath:) name:@"pathUpdate" object:nil];
+        }
+    } else {
+        controller = [[MainWindowController alloc] initWithWindowNibName:@"MainWindow"];
+        [controller showWindow:self];
+    }
     
 }
 
@@ -26,9 +33,19 @@
 }
 
 - (IBAction)Preferences:(id)sender {
-    
+    if (!prefController) {
+        prefController = [[PreferencesWindowController alloc] initWithWindowNibName:@"PreferencesWindowController"];
+    }
+    [prefController showWindow:self];
     
 }
+
+- (void)gotPath:(NSNotification *)notification {
+    controller = [[MainWindowController alloc] initWithWindowNibName:@"MainWindow"];
+    [controller showWindow:self];
+    
+}
+
 
 
 @end

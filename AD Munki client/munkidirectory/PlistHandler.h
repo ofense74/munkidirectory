@@ -10,6 +10,6 @@
 
 @interface PlistHandler : NSObject
 
-- (void)createPlistFromNames:(NSArray *)names;
+- (void)createPlistFromNames:(NSArray *)names compName:(NSString *)compName nodeName:(NSString *)nodeName;
 
 @end

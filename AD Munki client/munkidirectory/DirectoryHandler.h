@@ -11,7 +11,9 @@
 
 @interface DirectoryHandler : NSObject
 
+- (NSString *)getNameFromDSAD;
 - (NSArray *)getComuterGroups;
 - (NSArray *)getMunkiNames:(NSArray *)inNames;
+- (NSString *)getNodeName;
 
 @end

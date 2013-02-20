@@ -18,7 +18,7 @@
 {
     self = [super initWithWindow:window];
     if (self) {
-        // Initialization code here.
+        
     }
     
     return self;
@@ -27,8 +27,37 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-    
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    NSString *label = [[NSUserDefaults standardUserDefaults] valueForKey:@"path"];
+    if (! label) {
+        [_pathLabel setStringValue:@"Path not set"];
+    } else {
+        [_pathLabel setStringValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"path"]];
+    }
 }
 
+- (IBAction)chooseButton:(id)sender {
+    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+    [openPanel setCanChooseDirectories:YES];
+    [openPanel setCanChooseFiles:NO];
+    [openPanel setAllowsMultipleSelection:NO];
+    [openPanel setCanCreateDirectories:YES];
+    [openPanel beginSheetModalForWindow:[self window] completionHandler:^(NSInteger result) {
+        if (result == NSOKButton) {
+            [self setPath:[openPanel URL]];
+            [self updateLabel:[openPanel URL]];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"pathUpdate" object:nil];
+        }
+    }];
+}
+
+- (void)setPath:(NSURL *)url {
+    [[NSUserDefaults standardUserDefaults] setURL:url forKey:@"path"];
+    
+    
+}
+
+- (void)updateLabel:(NSURL *)url {
+    [_pathLabel setStringValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"path"]];
+    
+}
 @end

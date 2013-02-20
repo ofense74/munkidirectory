@@ -10,4 +10,8 @@
 
 @interface PreferencesWindowController : NSWindowController
 
+- (IBAction)chooseButton:(id)sender;
+@property (weak) IBOutlet NSTextField *pathLabel;
+
+
 @end

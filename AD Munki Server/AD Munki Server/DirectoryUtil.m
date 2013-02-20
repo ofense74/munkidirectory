@@ -72,7 +72,6 @@
             toReturn = compare;
         }
     }
-    NSLog(@"Actual AD-Node: %@", toReturn);
     return toReturn;
     
 }

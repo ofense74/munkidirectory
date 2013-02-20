@@ -20,7 +20,9 @@ int main(int argc, const char * argv[])
         PlistHandler *plist = [[PlistHandler alloc] init];
         NSArray *computers = [handler getComuterGroups];
         NSArray *munkiNames = [handler getMunkiNames:computers];
-        [plist createPlistFromNames:munkiNames];
+        NSString *adName = [handler getNameFromDSAD];
+        NSString *nodeName = [handler getNodeName];
+        [plist createPlistFromNames:munkiNames compName:adName nodeName:nodeName];
         
     }
     return 0;

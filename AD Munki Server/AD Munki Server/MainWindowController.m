@@ -36,7 +36,6 @@
 
 - (void)saveState {
     
-    NSLog(@"Trying to save");
     [pUtil putArrToPlist:arr];
 }
 

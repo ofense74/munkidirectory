@@ -19,7 +19,13 @@
 - (PlistUtil *)initPlistUtil {
     
     self = [super init];
-    filePath = @"/var/tmp/test.plist";
+    NSURL *dirPath = [NSURL fileURLWithPath:[[NSUserDefaults standardUserDefaults] valueForKey:@"path"]];
+    filePath = [dirPath URLByAppendingPathComponent:@"ADConditionManifest"];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[filePath path]]) {
+        NSLog(@"Thinks it's epmpty!");
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        [self writePlist:dict];
+    }
     dirUtil = [[DirectoryUtil alloc] initWithSessionAndNode];
     adGroups = [dirUtil getADGroups];
     conditions = [self getArrFromPlist];
@@ -35,7 +41,7 @@
     
     //Check if file exists, otherwise point to preferences.
     NSError *err;
-    NSInputStream *inStream = [NSInputStream inputStreamWithFileAtPath:filePath];
+    NSInputStream *inStream = [NSInputStream inputStreamWithURL:filePath];
     [inStream open];
     NSMutableDictionary *fromPlist = [NSPropertyListSerialization propertyListWithStream:inStream
                                                                                  options:NSPropertyListMutableContainersAndLeaves
@@ -51,7 +57,7 @@
 - (ConditionRecord *)getRecordForGroup:(NSString *)inGroup {
     
     //Checking against the group string
-    NSString *condString = [NSString stringWithFormat:@"ad_group_membership == \"%@\"", inGroup];
+    NSString *condString = [NSString stringWithFormat:@"ad_group_membership CONTAINS \"%@\"", inGroup];
     
     for (NSMutableDictionary *dict in conditions) {
         if ([[dict valueForKey:@"condition"] isEqualToString:condString]) {
@@ -87,32 +93,51 @@
     //Stringify the Optionrecords
     NSMutableArray *stringedArray = [NSMutableArray array];
     for (ConditionRecord *dict in inArray) {
-        NSMutableDictionary *newDict = [NSMutableDictionary dictionaryWithObject:[NSString stringWithFormat:@"ad_group_membership == \"%@\"", dict.group]
+        NSMutableDictionary *newDict = [NSMutableDictionary dictionaryWithObject:[NSString stringWithFormat:@"ad_group_membership CONTAINS \"%@\"", dict.group]
                                                                           forKey:@"condition"];
-        if ([dict.optInstalls count] > 0)
-            [newDict setObject:[dict makeStringArrayFromArray:dict.optInstalls] forKey:@"managed_installs"];
-        if ([dict.optUninstalls count] > 0)
-            [newDict setObject:[dict makeStringArrayFromArray:dict.optUninstalls] forKey:@"managed_uninstalls"];
-        if ([dict.optOptionals count] > 0)
-            [newDict setObject:[dict makeStringArrayFromArray:dict.optOptionals] forKey:@"optional_installs"];
-        if ([dict.optManifests count] > 0)
-            [newDict setObject:[dict makeStringArrayFromArray:dict.optManifests] forKey:@"included_manifests"];
+        int count = 0;
         
-        [stringedArray addObject:newDict];
+        if ([dict.optInstalls count] > 0) {
+            [newDict setObject:[dict makeStringArrayFromArray:dict.optInstalls] forKey:@"managed_installs"];
+            count ++;
+        }
+        if ([dict.optUninstalls count] > 0) {
+            [newDict setObject:[dict makeStringArrayFromArray:dict.optUninstalls] forKey:@"managed_uninstalls"];
+            count ++;
+        }
+        if ([dict.optOptionals count] > 0) {
+            [newDict setObject:[dict makeStringArrayFromArray:dict.optOptionals] forKey:@"optional_installs"];
+            count ++;
+        }
+        if ([dict.optManifests count] > 0) {
+            [newDict setObject:[dict makeStringArrayFromArray:dict.optManifests] forKey:@"included_manifests"];
+            count ++;
+        }
+        
+        if (count) {
+            [stringedArray addObject:newDict];
+        }
         
     }
     
     
     NSMutableDictionary *toPlist = [NSMutableDictionary dictionaryWithObject:stringedArray forKey:@"conditional_items"];
+    [self writePlist:toPlist];
     
-    NSOutputStream *outStream = [NSOutputStream outputStreamToFileAtPath:filePath append:NO];
+    
+}
+
+- (void)writePlist:(NSMutableDictionary *)plist {
+    
+    NSOutputStream *outStream = [NSOutputStream outputStreamWithURL:filePath append:NO];
     NSError *err;
     [outStream open];
-    [NSPropertyListSerialization writePropertyList:toPlist
+    [NSPropertyListSerialization writePropertyList:plist
                                           toStream:outStream
                                             format:NSPropertyListXMLFormat_v1_0
                                            options:0
                                              error:&err];
+    
     [outStream close];
     
 }
