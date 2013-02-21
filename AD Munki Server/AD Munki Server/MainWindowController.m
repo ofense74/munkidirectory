@@ -31,13 +31,6 @@
 {
     [super windowDidLoad];
     
-    if (!pUtil.dirUtil) {
-        [NSApp beginSheet:[noAdSheet window]
-           modalForWindow:[self window]
-            modalDelegate:self
-           didEndSelector:@selector(didEndSheet:returnCode:contextInfo:)
-              contextInfo:nil];
-    }
 }
 
 
