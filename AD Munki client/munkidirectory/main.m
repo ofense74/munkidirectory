@@ -22,6 +22,10 @@ int main(int argc, const char * argv[])
         NSArray *munkiNames = [handler getMunkiNames:computers];
         NSString *adName = [handler getNameFromDSAD];
         NSString *nodeName = [handler getNodeName];
+        if (!nodeName) {
+            //No contact with AD
+            exit(0);
+        }
         [plist createPlistFromNames:munkiNames compName:adName nodeName:nodeName];
         
     }

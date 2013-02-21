@@ -108,6 +108,10 @@
     }
     
     //Probably ugly but I will return the Node with the longest name since there can be more than one
+    if (![adNames count]) {
+        //Found no node starting with Active Directory
+        return nil;
+    }
     NSString *toReturn = [NSString string];
     for (NSString *compare in adNames) {
         if ([compare length] > [toReturn length]) {

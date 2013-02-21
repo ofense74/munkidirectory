@@ -47,8 +47,8 @@
 		B6A3F4AF16B9803700662942 /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
 		B6A3F4B016B9803700662942 /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
 		B6A3F4B116B9803700662942 /* PreferencesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindowController.xib; sourceTree = "<group>"; };
-		B6CE1848167A6C7D00E116FD /* Ballmer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ballmer.jpg; sourceTree = "<group>"; };
-		B6CE184B167A6E0B00E116FD /* myicon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = myicon.icns; sourceTree = "<group>"; };
+		B6CE1848167A6C7D00E116FD /* Ballmer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Ballmer.jpg; path = ../Ballmer.jpg; sourceTree = "<group>"; };
+		B6CE184B167A6E0B00E116FD /* myicon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = myicon.icns; path = ../myicon.icns; sourceTree = "<group>"; };
 		B6CE184D167A6E3000E116FD /* myicon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = myicon.icns; sourceTree = "<group>"; };
 		B6F9DBB21670F13A002E8CAF /* AD Munki Server.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AD Munki Server.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6F9DBB61670F13A002E8CAF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -106,8 +106,6 @@
 		B6F9DBA71670F13A002E8CAF = {
 			isa = PBXGroup;
 			children = (
-				B6CE184B167A6E0B00E116FD /* myicon.icns */,
-				B6CE1848167A6C7D00E116FD /* Ballmer.jpg */,
 				B6F9DBBC1670F13A002E8CAF /* AD Munki Server */,
 				B6F9DBD91670F13A002E8CAF /* AD Munki ServerTests */,
 				B6F9DBB51670F13A002E8CAF /* Frameworks */,
@@ -173,6 +171,8 @@
 		B6F9DBBD1670F13A002E8CAF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B6CE184B167A6E0B00E116FD /* myicon.icns */,
+				B6CE1848167A6C7D00E116FD /* Ballmer.jpg */,
 				B6F9DBBE1670F13A002E8CAF /* AD Munki Server-Info.plist */,
 				B6F9DBBF1670F13A002E8CAF /* InfoPlist.strings */,
 				B6CE184D167A6E3000E116FD /* myicon.icns */,
