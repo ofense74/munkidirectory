@@ -9,4 +9,7 @@ The **Munki** project is housed here:
 <http://code.google.com/p/munki/>
 
 The executables can be downloaded here:
-<https://s3-eu-west-1.amazonaws.com/admunki/AD+Munki.dmg>
+<https://s3-eu-west-1.amazonaws.com/admunki/ADMunki.dmg>
+
+##Version 1.01
+Fixed user interface.
