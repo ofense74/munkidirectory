@@ -39,10 +39,5 @@
     [pUtil putArrToPlist:arr];
 }
 
-- (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
-    
-    [sheet orderOut:self];
-    [NSApp terminate:nil];
-}
 
 @end
