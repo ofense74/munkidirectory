@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E077FC216E2A80F00E66669 /* ManifestAddWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E077FC016E2A80F00E66669 /* ManifestAddWindow.m */; };
+		3E077FC316E2A80F00E66669 /* ManifestAddWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E077FC116E2A80F00E66669 /* ManifestAddWindow.xib */; };
 		B6380B151676575700E706C5 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6380B141676575700E706C5 /* MainWindowController.m */; };
 		B6A3F4B216B9803700662942 /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A3F4B016B9803700662942 /* PreferencesWindowController.m */; };
 		B6A3F4B316B9803700662942 /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6A3F4B116B9803700662942 /* PreferencesWindowController.xib */; };
@@ -42,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E077FBF16E2A80F00E66669 /* ManifestAddWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManifestAddWindow.h; sourceTree = "<group>"; };
+		3E077FC016E2A80F00E66669 /* ManifestAddWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManifestAddWindow.m; sourceTree = "<group>"; };
+		3E077FC116E2A80F00E66669 /* ManifestAddWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManifestAddWindow.xib; sourceTree = "<group>"; };
 		B6380B131676575700E706C5 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
 		B6380B141676575700E706C5 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
 		B6A3F4AF16B9803700662942 /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
@@ -103,6 +108,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E077FB616E2A68200E66669 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				B6A3F4AF16B9803700662942 /* PreferencesWindowController.h */,
+				B6A3F4B016B9803700662942 /* PreferencesWindowController.m */,
+				B6A3F4B116B9803700662942 /* PreferencesWindowController.xib */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
+		3E077FB716E2A6AD00E66669 /* Array Classes Main Window */ = {
+			isa = PBXGroup;
+			children = (
+				B6F9DBF01670F18D002E8CAF /* DirectoryUtil.h */,
+				B6F9DBF11670F18D002E8CAF /* DirectoryUtil.m */,
+				B6F9DBEC1670F18D002E8CAF /* ConditionRecord.h */,
+				B6F9DBED1670F18D002E8CAF /* ConditionRecord.m */,
+				B6FEC9C7167A4E0F00A81F20 /* OptionRecord.h */,
+				B6FEC9C8167A4E0F00A81F20 /* OptionRecord.m */,
+			);
+			name = "Array Classes Main Window";
+			sourceTree = "<group>";
+		};
+		3E077FB816E2A70D00E66669 /* Plist Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B6F9DBF21670F18D002E8CAF /* PlistUtil.h */,
+				B6F9DBF31670F18D002E8CAF /* PlistUtil.m */,
+			);
+			name = "Plist Utils";
+			sourceTree = "<group>";
+		};
+		3E077FBE16E2A78D00E66669 /* Add To Manifest Window */ = {
+			isa = PBXGroup;
+			children = (
+				3E077FBF16E2A80F00E66669 /* ManifestAddWindow.h */,
+				3E077FC016E2A80F00E66669 /* ManifestAddWindow.m */,
+				3E077FC116E2A80F00E66669 /* ManifestAddWindow.xib */,
+			);
+			name = "Add To Manifest Window";
+			sourceTree = "<group>";
+		};
 		B6F9DBA71670F13A002E8CAF = {
 			isa = PBXGroup;
 			children = (
@@ -146,20 +193,13 @@
 		B6F9DBBC1670F13A002E8CAF /* AD Munki Server */ = {
 			isa = PBXGroup;
 			children = (
+				3E077FBE16E2A78D00E66669 /* Add To Manifest Window */,
+				3E077FB816E2A70D00E66669 /* Plist Utils */,
+				3E077FB716E2A6AD00E66669 /* Array Classes Main Window */,
+				3E077FB616E2A68200E66669 /* Preferences */,
 				B6F9DBC81670F13A002E8CAF /* AppDelegate.h */,
 				B6F9DBC91670F13A002E8CAF /* AppDelegate.m */,
 				B6F9DBCB1670F13A002E8CAF /* MainMenu.xib */,
-				B6F9DBEC1670F18D002E8CAF /* ConditionRecord.h */,
-				B6F9DBED1670F18D002E8CAF /* ConditionRecord.m */,
-				B6FEC9C7167A4E0F00A81F20 /* OptionRecord.h */,
-				B6FEC9C8167A4E0F00A81F20 /* OptionRecord.m */,
-				B6F9DBF01670F18D002E8CAF /* DirectoryUtil.h */,
-				B6F9DBF11670F18D002E8CAF /* DirectoryUtil.m */,
-				B6F9DBF21670F18D002E8CAF /* PlistUtil.h */,
-				B6F9DBF31670F18D002E8CAF /* PlistUtil.m */,
-				B6A3F4AF16B9803700662942 /* PreferencesWindowController.h */,
-				B6A3F4B016B9803700662942 /* PreferencesWindowController.m */,
-				B6A3F4B116B9803700662942 /* PreferencesWindowController.xib */,
 				B6FEC9C0167A3DC900A81F20 /* MainWindow.xib */,
 				B6380B131676575700E706C5 /* MainWindowController.h */,
 				B6380B141676575700E706C5 /* MainWindowController.m */,
@@ -281,6 +321,7 @@
 				B6CE184C167A6E0B00E116FD /* myicon.icns in Resources */,
 				B6CE184E167A6E3000E116FD /* myicon.icns in Resources */,
 				B6A3F4B316B9803700662942 /* PreferencesWindowController.xib in Resources */,
+				3E077FC316E2A80F00E66669 /* ManifestAddWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +364,7 @@
 				B6380B151676575700E706C5 /* MainWindowController.m in Sources */,
 				B6FEC9C9167A4E0F00A81F20 /* OptionRecord.m in Sources */,
 				B6A3F4B216B9803700662942 /* PreferencesWindowController.m in Sources */,
+				3E077FC216E2A80F00E66669 /* ManifestAddWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
