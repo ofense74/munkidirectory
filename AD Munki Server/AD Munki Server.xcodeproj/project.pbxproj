@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
 		7F7BF1BD16DBC41000F3DAAF /* AppsManifestsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7BF1BB16DBC41000F3DAAF /* AppsManifestsWindowController.m */; };
 		7F7BF1BE16DBC41000F3DAAF /* AppsManifestsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7BF1BC16DBC41000F3DAAF /* AppsManifestsWindowController.xib */; };
+=======
+		3E17764C16E299E400F27A44 /* ADFunktionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E17764A16E299E400F27A44 /* ADFunktionality.m */; };
+		3E17764D16E299E400F27A44 /* ADFunktionality.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E17764B16E299E400F27A44 /* ADFunktionality.xib */; };
+>>>>>>> Added window
 		B6380B151676575700E706C5 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6380B141676575700E706C5 /* MainWindowController.m */; };
 		B6A3F4B216B9803700662942 /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A3F4B016B9803700662942 /* PreferencesWindowController.m */; };
 		B6A3F4B316B9803700662942 /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6A3F4B116B9803700662942 /* PreferencesWindowController.xib */; };
@@ -44,9 +49,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+<<<<<<< HEAD
 		7F7BF1BA16DBC41000F3DAAF /* AppsManifestsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsManifestsWindowController.h; sourceTree = "<group>"; };
 		7F7BF1BB16DBC41000F3DAAF /* AppsManifestsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsManifestsWindowController.m; sourceTree = "<group>"; };
 		7F7BF1BC16DBC41000F3DAAF /* AppsManifestsWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppsManifestsWindowController.xib; sourceTree = "<group>"; };
+=======
+		3E17764916E299E400F27A44 /* ADFunktionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADFunktionality.h; sourceTree = "<group>"; };
+		3E17764A16E299E400F27A44 /* ADFunktionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADFunktionality.m; sourceTree = "<group>"; };
+		3E17764B16E299E400F27A44 /* ADFunktionality.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ADFunktionality.xib; sourceTree = "<group>"; };
+>>>>>>> Added window
 		B6380B131676575700E706C5 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
 		B6380B141676575700E706C5 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
 		B6A3F4AF16B9803700662942 /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
@@ -108,7 +119,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+<<<<<<< HEAD
 		7F7BF1B816DBBE8300F3DAAF /* Tableview Data */ = {
+=======
+		3E17764416E2989200F27A44 /* Arrays */ = {
+>>>>>>> Added window
 			isa = PBXGroup;
 			children = (
 				B6F9DBEC1670F18D002E8CAF /* ConditionRecord.h */,
@@ -116,16 +131,24 @@
 				B6FEC9C7167A4E0F00A81F20 /* OptionRecord.h */,
 				B6FEC9C8167A4E0F00A81F20 /* OptionRecord.m */,
 			);
+<<<<<<< HEAD
 			name = "Tableview Data";
 			sourceTree = "<group>";
 		};
 		7F7BF1B916DBBEAF00F3DAAF /* Preference Window */ = {
+=======
+			name = Arrays;
+			sourceTree = "<group>";
+		};
+		3E17764516E298B800F27A44 /* Preferences */ = {
+>>>>>>> Added window
 			isa = PBXGroup;
 			children = (
 				B6A3F4AF16B9803700662942 /* PreferencesWindowController.h */,
 				B6A3F4B016B9803700662942 /* PreferencesWindowController.m */,
 				B6A3F4B116B9803700662942 /* PreferencesWindowController.xib */,
 			);
+<<<<<<< HEAD
 			name = "Preference Window";
 			sourceTree = "<group>";
 		};
@@ -137,6 +160,47 @@
 				7F7BF1BC16DBC41000F3DAAF /* AppsManifestsWindowController.xib */,
 			);
 			name = "AppsManifests Window";
+=======
+			name = Preferences;
+			sourceTree = "<group>";
+		};
+		3E17764616E298E500F27A44 /* Plist handling */ = {
+			isa = PBXGroup;
+			children = (
+				B6F9DBF21670F18D002E8CAF /* PlistUtil.h */,
+				B6F9DBF31670F18D002E8CAF /* PlistUtil.m */,
+			);
+			name = "Plist handling";
+			sourceTree = "<group>";
+		};
+		3E17764716E2990600F27A44 /* Directory handling */ = {
+			isa = PBXGroup;
+			children = (
+				B6F9DBF01670F18D002E8CAF /* DirectoryUtil.h */,
+				B6F9DBF11670F18D002E8CAF /* DirectoryUtil.m */,
+			);
+			name = "Directory handling";
+			sourceTree = "<group>";
+		};
+		3E17764816E2994900F27A44 /* Main Window */ = {
+			isa = PBXGroup;
+			children = (
+				B6FEC9C0167A3DC900A81F20 /* MainWindow.xib */,
+				B6380B131676575700E706C5 /* MainWindowController.h */,
+				B6380B141676575700E706C5 /* MainWindowController.m */,
+			);
+			name = "Main Window";
+			sourceTree = "<group>";
+		};
+		3E17764E16E299EE00F27A44 /* AD Func Window */ = {
+			isa = PBXGroup;
+			children = (
+				3E17764916E299E400F27A44 /* ADFunktionality.h */,
+				3E17764A16E299E400F27A44 /* ADFunktionality.m */,
+				3E17764B16E299E400F27A44 /* ADFunktionality.xib */,
+			);
+			name = "AD Func Window";
+>>>>>>> Added window
 			sourceTree = "<group>";
 		};
 		B6F9DBA71670F13A002E8CAF = {
@@ -182,6 +246,7 @@
 		B6F9DBBC1670F13A002E8CAF /* AD Munki Server */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				7F7BF1BF16DBC42700F3DAAF /* AppsManifests Window */,
 				7F7BF1B916DBBEAF00F3DAAF /* Preference Window */,
 				7F7BF1B816DBBE8300F3DAAF /* Tableview Data */,
@@ -195,6 +260,17 @@
 				B6FEC9C0167A3DC900A81F20 /* MainWindow.xib */,
 				B6380B131676575700E706C5 /* MainWindowController.h */,
 				B6380B141676575700E706C5 /* MainWindowController.m */,
+=======
+				3E17764E16E299EE00F27A44 /* AD Func Window */,
+				3E17764816E2994900F27A44 /* Main Window */,
+				3E17764716E2990600F27A44 /* Directory handling */,
+				3E17764616E298E500F27A44 /* Plist handling */,
+				3E17764516E298B800F27A44 /* Preferences */,
+				3E17764416E2989200F27A44 /* Arrays */,
+				B6F9DBC81670F13A002E8CAF /* AppDelegate.h */,
+				B6F9DBC91670F13A002E8CAF /* AppDelegate.m */,
+				B6F9DBCB1670F13A002E8CAF /* MainMenu.xib */,
+>>>>>>> Added window
 				B6F9DBBD1670F13A002E8CAF /* Supporting Files */,
 			);
 			path = "AD Munki Server";
@@ -313,7 +389,11 @@
 				B6CE184C167A6E0B00E116FD /* myicon.icns in Resources */,
 				B6CE184E167A6E3000E116FD /* myicon.icns in Resources */,
 				B6A3F4B316B9803700662942 /* PreferencesWindowController.xib in Resources */,
+<<<<<<< HEAD
 				7F7BF1BE16DBC41000F3DAAF /* AppsManifestsWindowController.xib in Resources */,
+=======
+				3E17764D16E299E400F27A44 /* ADFunktionality.xib in Resources */,
+>>>>>>> Added window
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,7 +436,11 @@
 				B6380B151676575700E706C5 /* MainWindowController.m in Sources */,
 				B6FEC9C9167A4E0F00A81F20 /* OptionRecord.m in Sources */,
 				B6A3F4B216B9803700662942 /* PreferencesWindowController.m in Sources */,
+<<<<<<< HEAD
 				7F7BF1BD16DBC41000F3DAAF /* AppsManifestsWindowController.m in Sources */,
+=======
+				3E17764C16E299E400F27A44 /* ADFunktionality.m in Sources */,
+>>>>>>> Added window
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
