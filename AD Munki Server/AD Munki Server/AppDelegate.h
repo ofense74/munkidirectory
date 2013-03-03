@@ -9,15 +9,18 @@
 #import <Cocoa/Cocoa.h>
 #import "MainWindowController.h"
 #import "PreferencesWindowController.h"
+#import "ManifestAddWindow.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
     
     MainWindowController *controller;
     PreferencesWindowController *prefController;
+    ManifestAddWindow *addManifestWindow;
 }
 
 
 - (IBAction)Save:(id)sender;
 - (IBAction)Preferences:(id)sender;
+- (IBAction)adManifest:(id)sender;
 
 @end

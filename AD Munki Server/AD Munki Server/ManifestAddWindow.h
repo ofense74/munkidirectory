@@ -7,7 +7,17 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "FileHandler.h"
 
-@interface ManifestAddWindow : NSWindowController
+@interface ManifestAddWindow : NSWindowController {
+    
+    FileHandler *fileHandler;
+    
+}
+
+@property (copy) NSMutableArray *noADArray;
+@property (copy) NSMutableArray *ADArray;
+- (IBAction)addADButton:(id)sender;
+- (IBAction)removeADButton:(id)sender;
 
 @end

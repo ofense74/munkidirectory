@@ -40,6 +40,13 @@
     
 }
 
+- (IBAction)adManifest:(id)sender {
+    if (!addManifestWindow) {
+        addManifestWindow = [[ManifestAddWindow alloc] initWithWindowNibName:@"ManifestAddWindow"];
+    }
+    [addManifestWindow showWindow:self];
+}
+
 - (void)gotPath:(NSNotification *)notification {
     controller = [[MainWindowController alloc] initWithWindowNibName:@"MainWindow"];
     [controller showWindow:self];
