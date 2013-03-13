@@ -11,4 +11,12 @@
 @implementation Manifest
 @synthesize fileName;
 
+- (Manifest *)initManifest:(NSString *)name {
+    
+    self = [super init];
+    fileName = name;
+    return self;
+    
+}
+
 @end

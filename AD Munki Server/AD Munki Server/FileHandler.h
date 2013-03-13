@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Manifest.h"
 
 @interface FileHandler : NSObject {
     
@@ -20,5 +21,7 @@
 @property (copy) NSMutableArray *hasAD;
 
 - (FileHandler *)initFileHandler;
+- (void)addToManifests:(NSArray *)manifests;
+- (void)removeFromManifests:(NSArray *)manifests;
 
 @end

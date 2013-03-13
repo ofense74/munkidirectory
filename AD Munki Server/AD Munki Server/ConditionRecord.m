@@ -21,7 +21,6 @@
     self = [super init];
 
     group = inGroup;
-    NSLog(@"Group Name: %@", inGroup);
     
     arrInstalls = [inDict objectForKey:@"managed_installs"];
     optInstalls = [self makeOptArrayFromArray:arrInstalls];

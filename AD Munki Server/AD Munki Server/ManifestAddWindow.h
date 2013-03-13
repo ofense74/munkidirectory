@@ -11,12 +11,21 @@
 
 @interface ManifestAddWindow : NSWindowController {
     
-    FileHandler *fileHandler;
     
 }
+@property FileHandler *fileHandler;
 
 @property (copy) NSMutableArray *noADArray;
-@property (copy) NSMutableArray *ADArray;
+@property (strong) IBOutlet NSArrayController *noADArrayController;
+
+@property (copy) NSMutableArray *adArray;
+@property (strong) IBOutlet NSArrayController *ADArrayController;
+
+@property (weak) IBOutlet NSTableView *noADTableView;
+@property (weak) IBOutlet NSTableView *hasADTableView;
+
+
+
 - (IBAction)addADButton:(id)sender;
 - (IBAction)removeADButton:(id)sender;
 

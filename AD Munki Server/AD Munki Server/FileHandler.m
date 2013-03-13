@@ -15,20 +15,72 @@
 - (FileHandler *)initFileHandler {
     
     self = [super init];
+    
+    noAD = [NSMutableArray array];
+    hasAD = [NSMutableArray array];
+    
     fileManager = [NSFileManager defaultManager];
     path = [[NSUserDefaults standardUserDefaults] valueForKey:@"path"];
     [path stringByExpandingTildeInPath];
+    
     NSError *err;
     files = [fileManager contentsOfDirectoryAtPath:path error:&err];
-    NSLog(@"Error: %@", [err localizedDescription]);
     [self makeArrays];
+
     return self;
 }
 
 - (void)makeArrays {
     
-    NSLog(@"Path: %@", path);
-    NSLog(@"Array:\n%@", files);
+    for (NSString *file in files) {
+        NSString *fullPath = [path stringByAppendingPathComponent:file];
+        NSDictionary *plist = [NSDictionary dictionaryWithContentsOfFile:fullPath];
+        if (plist) {
+            NSArray *incManifests = [plist objectForKey:@"included_manifests"];
+            if (!incManifests || ![incManifests containsObject:@"ADConditionManifest"]) {
+                Manifest *man = [[Manifest alloc] initManifest:file];
+                [noAD addObject:man];
+                
+            }
+            else {
+                Manifest *man = [[Manifest alloc] initManifest:file];
+                [hasAD addObject:man];
+                
+            }
+        }
+        
+    }
+    
+}
+
+
+- (void)addToManifests:(NSArray *)manifests {
+    
+    for (Manifest *man in manifests) {
+        NSLog(@"In loop");
+        NSString *fullPath = [path stringByAppendingPathComponent:[man fileName]];
+        NSMutableDictionary *plist = [NSDictionary dictionaryWithContentsOfFile:fullPath];
+        NSMutableArray *includedManifests = [plist objectForKey:@"included_manifests"];
+        
+        if (includedManifests) {
+            NSLog(@"There is an Array");
+            [includedManifests addObject:@"ADConditionManifest"];
+        }
+        else {
+            NSLog(@"No array");
+            NSArray *incManifests = [NSArray arrayWithObject:@"ADConditionManifest"];
+            [plist setObject:incManifests forKey:@"included_manifests"];
+        }
+        
+        [plist writeToFile:fullPath atomically:NO];
+        [self makeArrays];
+    }
+    
+}
+
+- (void)removeFromManifests:(NSArray *)manifests {
+    
+    
     
 }
 

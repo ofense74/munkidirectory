@@ -12,4 +12,6 @@
 
 @property (copy) NSString *fileName;
 
+- (Manifest *)initManifest:(NSString *)name;
+
 @end

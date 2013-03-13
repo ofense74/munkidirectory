@@ -13,12 +13,14 @@
 @end
 
 @implementation ManifestAddWindow
+@synthesize adArray, noADArray, ADArrayController, noADArrayController, noADTableView, hasADTableView, fileHandler;
 
 - (id)initWithWindow:(NSWindow *)window
 {
     self = [super initWithWindow:window];
     if (self) {
-        // Initialization code here.
+        fileHandler = [[FileHandler alloc] initFileHandler];
+        [self getArrays];
     }
     
     return self;
@@ -28,12 +30,26 @@
 {
     [super windowDidLoad];
     
-    fileHandler = [[FileHandler alloc] initFileHandler];
+}
+
+- (void)getArrays {
+    
+    adArray = [fileHandler hasAD];
+    noADArray = [fileHandler noAD];
+    
 }
 
 - (IBAction)addADButton:(id)sender {
+    
+    NSArray *selected = [noADArrayController selectedObjects];
+    [fileHandler addToManifests:selected];
+    
+    
 }
 
 - (IBAction)removeADButton:(id)sender {
+    
+    [fileHandler removeFromManifests:[ADArrayController selectedObjects]];
+    
 }
 @end
