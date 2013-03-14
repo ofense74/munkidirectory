@@ -34,6 +34,10 @@
     
     for (NSString *file in files) {
         
+        if ([file isEqualToString:@"ADConditionManifest"]) {
+            continue;
+        }
+        
         NSError *err;
         NSArray *incManifests = [self readPlistAndReturnIncManifests:file error:&err];
         
