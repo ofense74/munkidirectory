@@ -33,23 +33,38 @@
 - (void)makeArrays {
     
     for (NSString *file in files) {
-        NSString *fullPath = [path stringByAppendingPathComponent:file];
-        NSDictionary *plist = [NSDictionary dictionaryWithContentsOfFile:fullPath];
-        if (plist) {
-            NSArray *incManifests = [plist objectForKey:@"included_manifests"];
-            if (!incManifests || ![incManifests containsObject:@"ADConditionManifest"]) {
-                Manifest *man = [[Manifest alloc] initManifest:file];
-                [noAD addObject:man];
-                
-            }
-            else {
-                Manifest *man = [[Manifest alloc] initManifest:file];
-                [hasAD addObject:man];
-                
-            }
+        
+        NSError *err;
+        NSArray *incManifests = [self readPlistAndReturnIncManifests:file error:&err];
+        
+        if ([err code] == 5) {
+            continue;
         }
         
+        if (!incManifests || ![incManifests containsObject:@"ADConditionManifest"]) {
+            Manifest *man = [[Manifest alloc] initManifest:file];
+            [noAD addObject:man];
+        }
+        else {
+            Manifest *man = [[Manifest alloc] initManifest:file];
+            [hasAD addObject:man];
+            
+        }
     }
+
+}
+
+- (NSMutableArray *)readPlistAndReturnIncManifests:(NSString *)fileName error:(NSError **)error {
+    NSString *fullPath = [path stringByAppendingPathComponent:fileName];
+    NSDictionary *plist = [NSDictionary dictionaryWithContentsOfFile:fullPath];
+    if (!plist) {
+        NSDictionary *errodDict = [NSDictionary dictionaryWithObject:@"Not a plist file" forKey:NSLocalizedDescriptionKey];
+        *error = [NSError errorWithDomain:@"FileHandler" code:5 userInfo:errodDict];
+        return nil;
+    }
+    NSMutableArray *incMan = [plist objectForKey:@"included_manifests"];
+    
+    return incMan;
     
 }
 
@@ -57,31 +72,76 @@
 - (void)addToManifests:(NSArray *)manifests {
     
     for (Manifest *man in manifests) {
-        NSLog(@"In loop");
         NSString *fullPath = [path stringByAppendingPathComponent:[man fileName]];
         NSMutableDictionary *plist = [NSDictionary dictionaryWithContentsOfFile:fullPath];
-        NSMutableArray *includedManifests = [plist objectForKey:@"included_manifests"];
+        NSError *err;
+        NSMutableArray *incMan = [self readPlistAndReturnIncManifests:[man fileName] error:&err];
         
-        if (includedManifests) {
-            NSLog(@"There is an Array");
-            [includedManifests addObject:@"ADConditionManifest"];
+        if (incMan) {
+            [incMan addObject:@"ADConditionManifest"];
         }
         else {
-            NSLog(@"No array");
-            NSArray *incManifests = [NSArray arrayWithObject:@"ADConditionManifest"];
-            [plist setObject:incManifests forKey:@"included_manifests"];
+            incMan = [NSArray arrayWithObject:@"ADConditionManifest"];
         }
-        
+        [plist setObject:incMan forKey:@"included_manifests"];
         [plist writeToFile:fullPath atomically:NO];
-        [self makeArrays];
     }
     
 }
 
 - (void)removeFromManifests:(NSArray *)manifests {
     
+    for (Manifest *man in manifests) {
+        NSString *fullPath = [path stringByAppendingPathComponent:[man fileName]];
+        NSMutableDictionary *plist = [NSDictionary dictionaryWithContentsOfFile:fullPath];
+        NSError *err;
+        NSMutableArray *incMan = [self readPlistAndReturnIncManifests:[man fileName] error:&err];
+        
+        if ([incMan count] == 1) {
+            [plist removeObjectForKey:@"included_manifests"];
+        }
+        else {
+            [incMan removeObject:@"ADConditionManifest"];
+            [plist setObject:incMan forKey:@"included_manifests"];
+        }
+        [plist writeToFile:fullPath atomically:NO];
+    }
     
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end

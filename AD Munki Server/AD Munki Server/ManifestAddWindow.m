@@ -43,13 +43,19 @@
     
     NSArray *selected = [noADArrayController selectedObjects];
     [fileHandler addToManifests:selected];
+    [ADArrayController addObjects:selected];
+    [noADArrayController removeObjects:selected];
     
     
 }
 
 - (IBAction)removeADButton:(id)sender {
     
-    [fileHandler removeFromManifests:[ADArrayController selectedObjects]];
+    NSArray *selected = [ADArrayController selectedObjects];
+    [fileHandler removeFromManifests:selected];
+    [noADArrayController addObjects:selected];
+    [ADArrayController removeObjects:selected];
+
     
 }
 @end
