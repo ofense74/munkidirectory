@@ -11,6 +11,10 @@
 		3E077FC316E2A80F00E66669 /* ManifestAddWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E077FC116E2A80F00E66669 /* ManifestAddWindow.xib */; };
 		3E077FC616E337E400E66669 /* Manifest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E077FC516E337E400E66669 /* Manifest.m */; };
 		3E077FC916E35B2300E66669 /* FileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E077FC816E35B2300E66669 /* FileHandler.m */; };
+		7F7C657716F34EB80044B0BF /* ApplicationsDragWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C657516F34EB80044B0BF /* ApplicationsDragWindow.m */; };
+		7F7C657816F34EB80044B0BF /* ApplicationsDragWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C657616F34EB80044B0BF /* ApplicationsDragWindow.xib */; };
+		7F7C657B16F34F650044B0BF /* ApplicationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C657A16F34F650044B0BF /* ApplicationInfo.m */; };
+		7F7C657E16F351AD0044B0BF /* AppllicationsRetriever.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C657D16F351AD0044B0BF /* AppllicationsRetriever.m */; };
 		B6380B151676575700E706C5 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6380B141676575700E706C5 /* MainWindowController.m */; };
 		B6A3F4B216B9803700662942 /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A3F4B016B9803700662942 /* PreferencesWindowController.m */; };
 		B6A3F4B316B9803700662942 /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6A3F4B116B9803700662942 /* PreferencesWindowController.xib */; };
@@ -53,6 +57,13 @@
 		3E077FC516E337E400E66669 /* Manifest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Manifest.m; sourceTree = "<group>"; };
 		3E077FC716E35B2300E66669 /* FileHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHandler.h; sourceTree = "<group>"; };
 		3E077FC816E35B2300E66669 /* FileHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHandler.m; sourceTree = "<group>"; };
+		7F7C657416F34EB80044B0BF /* ApplicationsDragWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationsDragWindow.h; sourceTree = "<group>"; };
+		7F7C657516F34EB80044B0BF /* ApplicationsDragWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationsDragWindow.m; sourceTree = "<group>"; };
+		7F7C657616F34EB80044B0BF /* ApplicationsDragWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ApplicationsDragWindow.xib; sourceTree = "<group>"; };
+		7F7C657916F34F650044B0BF /* ApplicationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationInfo.h; sourceTree = "<group>"; };
+		7F7C657A16F34F650044B0BF /* ApplicationInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationInfo.m; sourceTree = "<group>"; };
+		7F7C657C16F351AD0044B0BF /* AppllicationsRetriever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppllicationsRetriever.h; sourceTree = "<group>"; };
+		7F7C657D16F351AD0044B0BF /* AppllicationsRetriever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppllicationsRetriever.m; sourceTree = "<group>"; };
 		B6380B131676575700E706C5 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
 		B6380B141676575700E706C5 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
 		B6A3F4AF16B9803700662942 /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
@@ -160,6 +171,20 @@
 			name = "Add To Manifest Window";
 			sourceTree = "<group>";
 		};
+		7F7C656E16F31CB30044B0BF /* Applications drag */ = {
+			isa = PBXGroup;
+			children = (
+				7F7C657916F34F650044B0BF /* ApplicationInfo.h */,
+				7F7C657A16F34F650044B0BF /* ApplicationInfo.m */,
+				7F7C657C16F351AD0044B0BF /* AppllicationsRetriever.h */,
+				7F7C657D16F351AD0044B0BF /* AppllicationsRetriever.m */,
+				7F7C657416F34EB80044B0BF /* ApplicationsDragWindow.h */,
+				7F7C657516F34EB80044B0BF /* ApplicationsDragWindow.m */,
+				7F7C657616F34EB80044B0BF /* ApplicationsDragWindow.xib */,
+			);
+			name = "Applications drag";
+			sourceTree = "<group>";
+		};
 		B6F9DBA71670F13A002E8CAF = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +228,7 @@
 		B6F9DBBC1670F13A002E8CAF /* AD Munki Server */ = {
 			isa = PBXGroup;
 			children = (
+				7F7C656E16F31CB30044B0BF /* Applications drag */,
 				3E077FBE16E2A78D00E66669 /* Add To Manifest Window */,
 				3E077FB816E2A70D00E66669 /* Plist Utils */,
 				3E077FB716E2A6AD00E66669 /* Array Classes Main Window */,
@@ -332,6 +358,7 @@
 				B6CE184E167A6E3000E116FD /* myicon.icns in Resources */,
 				B6A3F4B316B9803700662942 /* PreferencesWindowController.xib in Resources */,
 				3E077FC316E2A80F00E66669 /* ManifestAddWindow.xib in Resources */,
+				7F7C657816F34EB80044B0BF /* ApplicationsDragWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +404,9 @@
 				3E077FC216E2A80F00E66669 /* ManifestAddWindow.m in Sources */,
 				3E077FC616E337E400E66669 /* Manifest.m in Sources */,
 				3E077FC916E35B2300E66669 /* FileHandler.m in Sources */,
+				7F7C657716F34EB80044B0BF /* ApplicationsDragWindow.m in Sources */,
+				7F7C657B16F34F650044B0BF /* ApplicationInfo.m in Sources */,
+				7F7C657E16F351AD0044B0BF /* AppllicationsRetriever.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -39,5 +39,14 @@
     [pUtil putArrToPlist:arr];
 }
 
+- (IBAction)applicationsWindow:(id)sender {
+    
+    if (!appDragWindow) {
+        appDragWindow = [[ApplicationsDragWindow alloc] initWithWindowNibName:@"ApplicationsDragWindow"];
+    }
+    [appDragWindow showWindow:self];
+    
+}
+
 
 @end

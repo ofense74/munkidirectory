@@ -8,12 +8,18 @@
 
 #import <Cocoa/Cocoa.h>
 #import "PlistUtil.h"
+#import "ApplicationsDragWindow.h"
 
-@interface MainWindowController : NSWindowController
+@interface MainWindowController : NSWindowController {
+    
+    ApplicationsDragWindow *appDragWindow;
+    
+}
 
 @property (copy) NSMutableArray *arr;
 @property PlistUtil *pUtil;
 
 - (void)saveState;
+- (IBAction)applicationsWindow:(id)sender;
 
 @end
