@@ -39,7 +39,6 @@
             [appInfo setAppName:[plist objectForKey:@"name"]];
             [appInfo setAppVersion:[plist objectForKey:@"version"]];
             [applicationsArray addObject:appInfo];
-            NSLog(@"AppInfo Array %li", [applicationsArray count]);
         }
         
     }

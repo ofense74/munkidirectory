@@ -13,8 +13,9 @@
 @end
 
 @implementation MainWindowController
-@synthesize arr;
-@synthesize pUtil;
+@synthesize arr, pUtil;
+@synthesize installsTView, unistallsTView, optionalsTView, manifestsTView;
+@synthesize installsArrController, uninstallsArrController, optionalsArrController;
 
 - (id)initWithWindow:(NSWindow *)window
 {
@@ -30,6 +31,14 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
+    [installsTView registerForDraggedTypes:[NSArray arrayWithObject:@"Applications"]];
+    [unistallsTView registerForDraggedTypes:[NSArray arrayWithObject:@"Applications"]];
+    [optionalsTView registerForDraggedTypes:[NSArray arrayWithObject:@"Applications"]];
+    //[manifestsTView registerForDraggedTypes:[NSArray arrayWithObject:@"Manifests"]];
+    
+    [installsTView setDataSource:self];
+    [unistallsTView setDataSource:self];
+    [optionalsTView setDataSource:self];
     
 }
 
@@ -47,6 +56,57 @@
     [appDragWindow showWindow:self];
     
 }
+
+- (NSDragOperation)tableView:(NSTableView *)tableView validateDrop:(id<NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)dropOperation {
+    
+    return NSDragOperationCopy;
+    
+}
+
+- (BOOL)tableView:(NSTableView *)tableView acceptDrop:(id<NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)dropOperation {
+    
+    NSPasteboard *pBoard = [info draggingPasteboard];
+    NSArray *arrData = [NSKeyedUnarchiver unarchiveObjectWithData:[pBoard dataForType:@"Applications"]];
+    for (NSString *temp in arrData) {
+        
+        OptionRecord *optRec = [[OptionRecord alloc] initWithOption:temp];
+        if (tableView == installsTView) {
+            [installsArrController addObject:optRec];
+        }
+        if (tableView == unistallsTView) {
+            [uninstallsArrController addObject:optRec];
+        }
+        if (tableView == optionalsTView) {
+            [optionalsArrController addObject:optRec];
+        }
+        
+    }
+    return YES;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @end

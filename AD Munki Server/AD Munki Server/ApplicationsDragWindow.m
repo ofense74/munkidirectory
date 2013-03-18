@@ -30,7 +30,6 @@
         applications = [NSMutableArray array];
         applications = [appRetriever applicationsArray];
         
-        
     }
     
     return self;
@@ -39,19 +38,21 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
+    [tView setDataSource:self];
     
-    
-}
-
-- (void)mouseDragged:(NSEvent *)theEvent {
-    
-    [tView dragImage:<#(NSImage *)#> at:<#(NSPoint)#> offset:<#(NSSize)#> event:<#(NSEvent *)#> pasteboard:<#(NSPasteboard *)#> source:<#(id)#> slideBack:<#(BOOL)#>];
     
 }
 
 - (BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {
     
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:rowIndexes];
+    NSMutableArray *arrData = [NSMutableArray array];
+    NSUInteger currentIndex = [rowIndexes firstIndex];
+    while (currentIndex != NSNotFound) {
+        NSString *theName = [(ApplicationInfo* )[applications objectAtIndex:currentIndex] appName];
+        [arrData addObject:theName];
+        currentIndex = [rowIndexes indexGreaterThanIndex:currentIndex];
+    }
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:arrData];
     [pboard declareTypes:[NSArray arrayWithObject:@"Applications"] owner:self];
     [pboard setData:data forType:@"Applications"];
     return YES;
