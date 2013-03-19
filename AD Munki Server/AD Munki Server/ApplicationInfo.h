@@ -12,5 +12,6 @@
 
 @property NSString *appName;
 @property NSString *appVersion;
+@property NSString *appDisplayName;
 
 @end

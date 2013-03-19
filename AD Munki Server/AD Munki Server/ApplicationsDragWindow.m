@@ -43,6 +43,10 @@
     
 }
 
+- (void)showTheWindow {
+    [[self window]makeKeyAndOrderFront:self];
+}
+
 - (BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {
     
     NSMutableArray *arrData = [NSMutableArray array];

@@ -15,4 +15,6 @@
 @property (weak) IBOutlet NSTableView *tView;
 @property (strong) IBOutlet NSArrayController *arrayController;
 
+- (void)showTheWindow;
+
 @end

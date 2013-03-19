@@ -38,6 +38,7 @@
             ApplicationInfo *appInfo = [[ApplicationInfo alloc] init];
             [appInfo setAppName:[plist objectForKey:@"name"]];
             [appInfo setAppVersion:[plist objectForKey:@"version"]];
+            [appInfo setAppDisplayName:[plist objectForKey:@"display_name"]];
             [applicationsArray addObject:appInfo];
         }
         

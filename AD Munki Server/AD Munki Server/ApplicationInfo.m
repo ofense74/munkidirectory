@@ -10,6 +10,6 @@
 
 @implementation ApplicationInfo
 
-@synthesize appName, appVersion;
+@synthesize appName, appVersion, appDisplayName;
 
 @end

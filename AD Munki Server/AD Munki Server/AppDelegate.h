@@ -10,12 +10,14 @@
 #import "MainWindowController.h"
 #import "PreferencesWindowController.h"
 #import "ManifestAddWindow.h"
+#import "ApplicationsDragWindow.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
     
     MainWindowController *controller;
     PreferencesWindowController *prefController;
     ManifestAddWindow *addManifestWindow;
+    ApplicationsDragWindow *appDragWindow;
 }
 
 

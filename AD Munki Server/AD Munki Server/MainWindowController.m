@@ -14,6 +14,7 @@
 
 @implementation MainWindowController
 @synthesize arr, pUtil;
+@synthesize appDragWindow;
 @synthesize installsTView, unistallsTView, optionalsTView, manifestsTView;
 @synthesize installsArrController, uninstallsArrController, optionalsArrController;
 
@@ -31,10 +32,10 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-    [installsTView registerForDraggedTypes:[NSArray arrayWithObject:@"Applications"]];
-    [unistallsTView registerForDraggedTypes:[NSArray arrayWithObject:@"Applications"]];
-    [optionalsTView registerForDraggedTypes:[NSArray arrayWithObject:@"Applications"]];
-    //[manifestsTView registerForDraggedTypes:[NSArray arrayWithObject:@"Manifests"]];
+    [installsTView registerForDraggedTypes:[NSArray arrayWithObjects:@"SameWinApps", @"Applications", nil]];
+    [unistallsTView registerForDraggedTypes:[NSArray arrayWithObjects:@"SameWinApps", @"Applications", nil]];
+    [optionalsTView registerForDraggedTypes:[NSArray arrayWithObjects:@"SameWinApps", @"Applications", nil]];
+    [manifestsTView registerForDraggedTypes:[NSArray arrayWithObject:@"Manifests"]];
     
     [installsTView setDataSource:self];
     [unistallsTView setDataSource:self];
@@ -53,35 +54,73 @@
     if (!appDragWindow) {
         appDragWindow = [[ApplicationsDragWindow alloc] initWithWindowNibName:@"ApplicationsDragWindow"];
     }
-    [appDragWindow showWindow:self];
+    [[appDragWindow window] makeKeyAndOrderFront:self];
+}
+
+- (BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {
+    
+    if (tableView == manifestsTView) {
+        return NO;
+    }
+    if (tableView == installsTView) {
+        dragArr = [installsArrController selectedObjects];
+    }
+    if (tableView == unistallsTView) {
+        dragArr = [uninstallsArrController selectedObjects];
+    }
+    if (tableView == optionalsTView) {
+        dragArr = [optionalsArrController selectedObjects];
+    }
+    
+    [pboard declareTypes:[NSArray arrayWithObject:@"SameWinApps"] owner:self];
+    
+    return YES;
     
 }
 
 - (NSDragOperation)tableView:(NSTableView *)tableView validateDrop:(id<NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)dropOperation {
     
-    return NSDragOperationCopy;
+    
+    return NSDragOperationCopy;   
     
 }
 
 - (BOOL)tableView:(NSTableView *)tableView acceptDrop:(id<NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)dropOperation {
     
     NSPasteboard *pBoard = [info draggingPasteboard];
-    NSArray *arrData = [NSKeyedUnarchiver unarchiveObjectWithData:[pBoard dataForType:@"Applications"]];
-    for (NSString *temp in arrData) {
+    if ([[pBoard types] containsObject:@"Applications"]) {
         
-        OptionRecord *optRec = [[OptionRecord alloc] initWithOption:temp];
+        NSArray *arrData = [NSKeyedUnarchiver unarchiveObjectWithData:[pBoard dataForType:@"Applications"]];
+        for (NSString *temp in arrData) {
+            
+            OptionRecord *optRec = [[OptionRecord alloc] initWithOption:temp];
+            if (tableView == installsTView) {
+                [installsArrController addObject:optRec];
+            }
+            if (tableView == unistallsTView) {
+                [uninstallsArrController addObject:optRec];
+            }
+            if (tableView == optionalsTView) {
+                [optionalsArrController addObject:optRec];
+            }
+            return YES;
+            
+        }
+    }
+    if ([[pBoard types] containsObject:@"SameWinApps"]) {
         if (tableView == installsTView) {
-            [installsArrController addObject:optRec];
+            [installsArrController addObjects:dragArr];
         }
         if (tableView == unistallsTView) {
-            [uninstallsArrController addObject:optRec];
+            [uninstallsArrController addObjects:dragArr];
         }
         if (tableView == optionalsTView) {
-            [optionalsArrController addObject:optRec];
+            [optionalsArrController addObjects:dragArr];
         }
-        
+        return YES;
     }
-    return YES;
+    
+    return NO;
 }
 
 
