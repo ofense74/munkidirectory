@@ -80,7 +80,7 @@
 															<string key="NSFrameSize">{260, 466}</string>
 															<reference key="NSSuperview" ref="452230224"/>
 															<reference key="NSWindow"/>
-															<reference key="NSNextKeyView" ref="583346651"/>
+															<reference key="NSNextKeyView" ref="357187382"/>
 															<string key="NSReuseIdentifierKey">_NS:13</string>
 															<bool key="NSEnabled">YES</bool>
 															<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -247,7 +247,7 @@
 											<string key="NSFrameSize">{262, 484}</string>
 											<reference key="NSSuperview" ref="839087080"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="452230224"/>
+											<reference key="NSNextKeyView" ref="583346651"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<int key="NSsFlags">133682</int>
 											<reference key="NSVScroller" ref="357187382"/>
@@ -303,6 +303,7 @@
 											<string key="NSFrame">{{292, 37}, {27, 23}}</string>
 											<reference key="NSSuperview" ref="338780560"/>
 											<reference key="NSWindow"/>
+											<reference key="NSNextKeyView"/>
 											<string key="NSReuseIdentifierKey">_NS:22</string>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSButtonCell" key="NSCell" id="933432856">
@@ -510,7 +511,7 @@
 															<string key="NSFrameSize">{209, 125}</string>
 															<reference key="NSSuperview" ref="867573913"/>
 															<reference key="NSWindow"/>
-															<reference key="NSNextKeyView" ref="75326973"/>
+															<reference key="NSNextKeyView" ref="768201704"/>
 															<string key="NSReuseIdentifierKey">_NS:13</string>
 															<bool key="NSEnabled">YES</bool>
 															<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -638,7 +639,7 @@
 											<string key="NSFrame">{{20, 311}, {211, 143}}</string>
 											<reference key="NSSuperview" ref="338780560"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="867573913"/>
+											<reference key="NSNextKeyView" ref="75326973"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<int key="NSsFlags">133682</int>
 											<reference key="NSVScroller" ref="768201704"/>
@@ -665,7 +666,7 @@
 															<string key="NSFrameSize">{209, 125}</string>
 															<reference key="NSSuperview" ref="137018832"/>
 															<reference key="NSWindow"/>
-															<reference key="NSNextKeyView" ref="873534763"/>
+															<reference key="NSNextKeyView" ref="756541569"/>
 															<string key="NSReuseIdentifierKey">_NS:13</string>
 															<bool key="NSEnabled">YES</bool>
 															<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -793,7 +794,7 @@
 											<string key="NSFrame">{{257, 311}, {211, 143}}</string>
 											<reference key="NSSuperview" ref="338780560"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="137018832"/>
+											<reference key="NSNextKeyView" ref="873534763"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<int key="NSsFlags">133682</int>
 											<reference key="NSVScroller" ref="756541569"/>
@@ -821,7 +822,7 @@
 															<string key="NSFrameSize">{209, 125}</string>
 															<reference key="NSSuperview" ref="560962042"/>
 															<reference key="NSWindow"/>
-															<reference key="NSNextKeyView" ref="629489897"/>
+															<reference key="NSNextKeyView" ref="668394949"/>
 															<string key="NSReuseIdentifierKey">_NS:13</string>
 															<bool key="NSEnabled">YES</bool>
 															<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -951,7 +952,7 @@
 											<string key="NSFrame">{{20, 67}, {211, 143}}</string>
 											<reference key="NSSuperview" ref="338780560"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="560962042"/>
+											<reference key="NSNextKeyView" ref="629489897"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<int key="NSsFlags">133682</int>
 											<reference key="NSVScroller" ref="668394949"/>
@@ -979,7 +980,7 @@
 															<string key="NSFrameSize">{209, 125}</string>
 															<reference key="NSSuperview" ref="641370128"/>
 															<reference key="NSWindow"/>
-															<reference key="NSNextKeyView" ref="44391641"/>
+															<reference key="NSNextKeyView" ref="60941326"/>
 															<string key="NSReuseIdentifierKey">_NS:13</string>
 															<bool key="NSEnabled">YES</bool>
 															<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -1106,7 +1107,7 @@
 											<string key="NSFrame">{{257, 67}, {211, 143}}</string>
 											<reference key="NSSuperview" ref="338780560"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="641370128"/>
+											<reference key="NSNextKeyView" ref="44391641"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<int key="NSsFlags">133682</int>
 											<reference key="NSVScroller" ref="1051056511"/>
@@ -1219,28 +1220,6 @@
 			</object>
 			<object class="NSUserDefaultsController" id="857036839">
 				<bool key="NSSharedInstance">YES</bool>
-			</object>
-			<object class="NSButton" id="353605455">
-				<nil key="NSNextResponder"/>
-				<int key="NSvFlags">268</int>
-				<string key="NSFrameSize">{27, 25}</string>
-				<string key="NSReuseIdentifierKey">_NS:22</string>
-				<bool key="NSEnabled">YES</bool>
-				<object class="NSButtonCell" key="NSCell" id="933194601">
-					<int key="NSCellFlags">-2080374784</int>
-					<int key="NSCellFlags2">134217728</int>
-					<string key="NSContents">+</string>
-					<reference key="NSSupport" ref="152786838"/>
-					<string key="NSCellIdentifier">_NS:22</string>
-					<reference key="NSControlView" ref="353605455"/>
-					<int key="NSButtonFlags">-2033434624</int>
-					<int key="NSButtonFlags2">162</int>
-					<string key="NSAlternateContents"/>
-					<string key="NSKeyEquivalent"/>
-					<int key="NSPeriodicDelay">400</int>
-					<int key="NSPeriodicInterval">75</int>
-				</object>
-				<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -2865,19 +2844,6 @@
 						<reference key="parent" ref="338780560"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">752</int>
-						<reference key="object" ref="353605455"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="933194601"/>
-						</array>
-						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">754</int>
-						<reference key="object" ref="933194601"/>
-						<reference key="parent" ref="353605455"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">755</int>
 						<reference key="object" ref="349845009"/>
 						<array class="NSMutableArray" key="children">
@@ -3339,8 +3305,6 @@
 				<string key="747.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="750.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="751.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="752.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="754.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<array key="755.IBNSViewMetadataConstraints">
 					<reference ref="1043725410"/>
 				</array>
@@ -3416,7 +3380,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">914</int>
+			<int key="maxID">915</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3496,7 +3460,7 @@
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">OptionRecord</string>
-					<string key="superclassName">NSObject</string>
+					<string key="superclassName">NSManagedObject</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/OptionRecord.h</string>

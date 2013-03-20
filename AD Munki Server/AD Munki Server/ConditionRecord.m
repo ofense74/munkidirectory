@@ -45,7 +45,8 @@
     NSMutableArray *toReturn = [NSMutableArray array];
     for (NSString *temp in inArray) {
         
-        OptionRecord *tempOpt = [[OptionRecord alloc] initWithOption:temp];
+        OptionRecord *tempOpt = [[OptionRecord alloc] init];
+        [tempOpt setOption:temp];
         [toReturn addObject:tempOpt];
     }
     return toReturn;

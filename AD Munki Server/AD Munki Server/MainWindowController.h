@@ -13,7 +13,6 @@
 
 @interface MainWindowController : NSWindowController <NSTableViewDataSource> {
     
-@private NSArray *dragArr;
     
 }
 

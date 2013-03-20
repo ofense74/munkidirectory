@@ -9,12 +9,12 @@
 #import "OptionRecord.h"
 
 @implementation OptionRecord
-@synthesize option;
+@dynamic option;
 
 - (id)init {
     
     if ([super init]) {
-        option = @"App or Manifest";
+        
     }
     return self;
     
@@ -23,10 +23,11 @@
 - (OptionRecord *)initWithOption:(NSString *)inOption {
     
     if ([super init]) {
-        option = inOption;
+        
     }
     return self;
     
 }
+
 
 @end

@@ -32,9 +32,15 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-    [installsTView registerForDraggedTypes:[NSArray arrayWithObjects:@"SameWinApps", @"Applications", nil]];
-    [unistallsTView registerForDraggedTypes:[NSArray arrayWithObjects:@"SameWinApps", @"Applications", nil]];
-    [optionalsTView registerForDraggedTypes:[NSArray arrayWithObjects:@"SameWinApps", @"Applications", nil]];
+    [installsTView registerForDraggedTypes:[NSArray arrayWithObjects:@"Applications", @"SameWinApps", nil]];
+    [installsTView setDraggingSourceOperationMask:NSDragOperationMove forLocal:YES];
+    
+    [unistallsTView registerForDraggedTypes:[NSArray arrayWithObjects:@"Applications", @"SameWinApps", nil]];
+    [unistallsTView setDraggingSourceOperationMask:NSDragOperationMove forLocal:YES];
+    
+    [optionalsTView registerForDraggedTypes:[NSArray arrayWithObjects:@"Applications", @"SameWinApps", nil]];
+    [optionalsTView setDraggingSourceOperationMask:NSDragOperationMove forLocal:YES];
+    
     [manifestsTView registerForDraggedTypes:[NSArray arrayWithObject:@"Manifests"]];
     
     [installsTView setDataSource:self];
@@ -62,16 +68,17 @@
     if (tableView == manifestsTView) {
         return NO;
     }
-    if (tableView == installsTView) {
-        dragArr = [installsArrController selectedObjects];
-    }
-    if (tableView == unistallsTView) {
-        dragArr = [uninstallsArrController selectedObjects];
-    }
-    if (tableView == optionalsTView) {
-        dragArr = [optionalsArrController selectedObjects];
+    
+    NSDictionary *tvDict = [tableView infoForBinding:NSContentBinding];
+    NSArrayController *arrController = [tvDict valueForKey:NSObservedObjectKey];
+    NSMutableArray *optURIs = [NSMutableArray array];
+    
+    for (id optRec in [[arrController arrangedObjects] objectsAtIndexes:rowIndexes]) {
+
+        [optURIs addObject:[[optRec objectID] URIRepresentation]];
     }
     
+    [pboard setData:[NSArchiver archivedDataWithRootObject:optURIs] forType:@"SameWinApps"];
     [pboard declareTypes:[NSArray arrayWithObject:@"SameWinApps"] owner:self];
     
     return YES;
@@ -80,45 +87,31 @@
 
 - (NSDragOperation)tableView:(NSTableView *)tableView validateDrop:(id<NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)dropOperation {
     
-    
-    return NSDragOperationCopy;   
-    
+    [tableView setDropRow:row dropOperation:NSTableViewDropAbove];
+    return NSDragOperationMove;
 }
 
 - (BOOL)tableView:(NSTableView *)tableView acceptDrop:(id<NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)dropOperation {
     
+    NSDictionary *controlDict = [tableView infoForBinding:NSContentBinding];
+    NSArrayController *tViewController = [controlDict valueForKey:NSObservedObjectKey];
+    
+    NSManagedObjectContext *context = [[NSApp delegate] managedObjectContext];
+    NSPersistentStoreCoordinator *coordinator = [context persistentStoreCoordinator];
+    
+    
     NSPasteboard *pBoard = [info draggingPasteboard];
-    if ([[pBoard types] containsObject:@"Applications"]) {
-        
-        NSArray *arrData = [NSKeyedUnarchiver unarchiveObjectWithData:[pBoard dataForType:@"Applications"]];
-        for (NSString *temp in arrData) {
-            
-            OptionRecord *optRec = [[OptionRecord alloc] initWithOption:temp];
-            if (tableView == installsTView) {
-                [installsArrController addObject:optRec];
-            }
-            if (tableView == unistallsTView) {
-                [uninstallsArrController addObject:optRec];
-            }
-            if (tableView == optionalsTView) {
-                [optionalsArrController addObject:optRec];
-            }
-            return YES;
-            
-        }
-    }
     if ([[pBoard types] containsObject:@"SameWinApps"]) {
-        if (tableView == installsTView) {
-            [installsArrController addObjects:dragArr];
+        NSArray *objURIs = [NSUnarchiver unarchiveObjectWithData:[pBoard dataForType:@"SameWinApps"]];
+        for (NSURL *objURI in objURIs) {
+            NSManagedObjectID *objID;
+            NSManagedObject *obj;
+            objID = [coordinator managedObjectIDForURIRepresentation:objURI];
+            obj = [context objectWithID:objID];
+            [tViewController addObject:obj];
         }
-        if (tableView == unistallsTView) {
-            [uninstallsArrController addObjects:dragArr];
-        }
-        if (tableView == optionalsTView) {
-            [optionalsArrController addObjects:dragArr];
-        }
-        return YES;
     }
+    
     
     return NO;
 }
