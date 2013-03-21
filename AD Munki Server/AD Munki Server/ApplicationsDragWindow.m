@@ -39,6 +39,8 @@
 {
     [super windowDidLoad];
     [tView setDataSource:self];
+    [self setShouldCascadeWindows:NO];
+    [[self window] setFrameAutosaveName:@"ApplicationsDragWindow"];
     
     
 }

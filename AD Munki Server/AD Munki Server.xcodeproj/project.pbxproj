@@ -13,6 +13,8 @@
 		3E077FC916E35B2300E66669 /* FileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E077FC816E35B2300E66669 /* FileHandler.m */; };
 		7F2ACE8C16FB4B4700E86FB9 /* ManifestsWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2ACE8A16FB4B4700E86FB9 /* ManifestsWindow.m */; };
 		7F2ACE8D16FB4B4700E86FB9 /* ManifestsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F2ACE8B16FB4B4700E86FB9 /* ManifestsWindow.xib */; };
+		7F2ACE9216FB688D00E86FB9 /* AddCatalogsWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2ACE9016FB688D00E86FB9 /* AddCatalogsWindow.m */; };
+		7F2ACE9316FB688D00E86FB9 /* AddCatalogsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F2ACE9116FB688D00E86FB9 /* AddCatalogsWindow.xib */; };
 		7F7C657716F34EB80044B0BF /* ApplicationsDragWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C657516F34EB80044B0BF /* ApplicationsDragWindow.m */; };
 		7F7C657816F34EB80044B0BF /* ApplicationsDragWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C657616F34EB80044B0BF /* ApplicationsDragWindow.xib */; };
 		7F7C657B16F34F650044B0BF /* ApplicationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C657A16F34F650044B0BF /* ApplicationInfo.m */; };
@@ -62,6 +64,9 @@
 		7F2ACE8916FB4B4700E86FB9 /* ManifestsWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManifestsWindow.h; sourceTree = "<group>"; };
 		7F2ACE8A16FB4B4700E86FB9 /* ManifestsWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManifestsWindow.m; sourceTree = "<group>"; };
 		7F2ACE8B16FB4B4700E86FB9 /* ManifestsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManifestsWindow.xib; sourceTree = "<group>"; };
+		7F2ACE8F16FB688D00E86FB9 /* AddCatalogsWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCatalogsWindow.h; sourceTree = "<group>"; };
+		7F2ACE9016FB688D00E86FB9 /* AddCatalogsWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCatalogsWindow.m; sourceTree = "<group>"; };
+		7F2ACE9116FB688D00E86FB9 /* AddCatalogsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCatalogsWindow.xib; sourceTree = "<group>"; };
 		7F7C657416F34EB80044B0BF /* ApplicationsDragWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationsDragWindow.h; sourceTree = "<group>"; };
 		7F7C657516F34EB80044B0BF /* ApplicationsDragWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationsDragWindow.m; sourceTree = "<group>"; };
 		7F7C657616F34EB80044B0BF /* ApplicationsDragWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ApplicationsDragWindow.xib; sourceTree = "<group>"; };
@@ -182,6 +187,16 @@
 			name = "Manifests drag";
 			sourceTree = "<group>";
 		};
+		7F2ACE8E16FB686A00E86FB9 /* Add catalogs */ = {
+			isa = PBXGroup;
+			children = (
+				7F2ACE8F16FB688D00E86FB9 /* AddCatalogsWindow.h */,
+				7F2ACE9016FB688D00E86FB9 /* AddCatalogsWindow.m */,
+				7F2ACE9116FB688D00E86FB9 /* AddCatalogsWindow.xib */,
+			);
+			name = "Add catalogs";
+			sourceTree = "<group>";
+		};
 		7F7C656E16F31CB30044B0BF /* Applications drag */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +254,7 @@
 		B6F9DBBC1670F13A002E8CAF /* AD Munki Server */ = {
 			isa = PBXGroup;
 			children = (
+				7F2ACE8E16FB686A00E86FB9 /* Add catalogs */,
 				7F2ACE8816FB4B1100E86FB9 /* Manifests drag */,
 				7F7C656E16F31CB30044B0BF /* Applications drag */,
 				3E077FBE16E2A78D00E66669 /* Add To Manifest Window */,
@@ -376,6 +392,7 @@
 				3E077FC316E2A80F00E66669 /* ManifestAddWindow.xib in Resources */,
 				7F7C657816F34EB80044B0BF /* ApplicationsDragWindow.xib in Resources */,
 				7F2ACE8D16FB4B4700E86FB9 /* ManifestsWindow.xib in Resources */,
+				7F2ACE9316FB688D00E86FB9 /* AddCatalogsWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +442,7 @@
 				7F7C657B16F34F650044B0BF /* ApplicationInfo.m in Sources */,
 				7F7C657E16F351AD0044B0BF /* AppllicationsRetriever.m in Sources */,
 				7F2ACE8C16FB4B4700E86FB9 /* ManifestsWindow.m in Sources */,
+				7F2ACE9216FB688D00E86FB9 /* AddCatalogsWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

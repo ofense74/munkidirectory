@@ -33,6 +33,8 @@
     } else {
         [_pathLabel setStringValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"path"]];
     }
+    [self setShouldCascadeWindows:NO];
+    [[self window] setFrameAutosaveName:@"PreferenceWindow"];
 }
 
 - (IBAction)chooseButton:(id)sender {

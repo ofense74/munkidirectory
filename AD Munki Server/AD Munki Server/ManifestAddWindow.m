@@ -30,6 +30,8 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
+    [self setShouldCascadeWindows:NO];
+    [[self window] setFrameAutosaveName:@"AddToManifestWindow"];
     
 }
 

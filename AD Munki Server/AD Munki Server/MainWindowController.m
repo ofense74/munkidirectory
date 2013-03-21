@@ -47,6 +47,9 @@
     [optionalsTView setDataSource:self];
     [manifestsTView setDataSource:self];
     
+    [self setShouldCascadeWindows:NO];
+    [[self window] setFrameAutosaveName:@"MainWindow"];
+    
 }
 
 

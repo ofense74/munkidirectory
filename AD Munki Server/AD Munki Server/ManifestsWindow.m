@@ -32,6 +32,8 @@
     [super windowDidLoad];
     
     [tableView setDataSource:self];
+    [self setShouldCascadeWindows:NO];
+    [[self window] setFrameAutosaveName:@"ManifestsDragWindow"];
 }
 
 - (BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {
