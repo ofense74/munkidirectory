@@ -10,7 +10,7 @@
 
 @implementation FileHandler
 
-@synthesize noAD, hasAD;
+@synthesize noAD, hasAD, manifestsArr;
 
 - (FileHandler *)initFileHandler {
     
@@ -18,6 +18,7 @@
     
     noAD = [NSMutableArray array];
     hasAD = [NSMutableArray array];
+    manifestsArr = [NSMutableArray array];
     
     fileManager = [NSFileManager defaultManager];
     path = [[NSUserDefaults standardUserDefaults] valueForKey:@"path"];
@@ -25,9 +26,25 @@
     
     NSError *err;
     files = [fileManager contentsOfDirectoryAtPath:path error:&err];
-    [self makeArrays];
 
     return self;
+}
+
+- (void)makeManifestArray {
+    
+    for (NSString *file in files) {
+        
+        if ([file isEqualToString:@"ADConditionManifest"]) {
+            continue;
+        }
+        NSString *fullPath = [path stringByAppendingPathComponent:file];
+        if (![NSDictionary dictionaryWithContentsOfFile:fullPath]) {
+            continue;
+        }
+        Manifest *man = [[Manifest alloc] initManifest:file];
+        [manifestsArr addObject:man];
+    }
+    
 }
 
 - (void)makeArrays {

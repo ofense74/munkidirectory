@@ -19,8 +19,11 @@
 
 @property (copy) NSMutableArray *noAD;
 @property (copy) NSMutableArray *hasAD;
+@property (copy) NSMutableArray *manifestsArr;
 
 - (FileHandler *)initFileHandler;
+- (void)makeManifestArray;
+- (void)makeArrays;
 - (void)addToManifests:(NSArray *)manifests;
 - (void)removeFromManifests:(NSArray *)manifests;
 

@@ -20,6 +20,7 @@
     self = [super initWithWindow:window];
     if (self) {
         fileHandler = [[FileHandler alloc] initFileHandler];
+        [fileHandler makeArrays];
         [self getArrays];
     }
     

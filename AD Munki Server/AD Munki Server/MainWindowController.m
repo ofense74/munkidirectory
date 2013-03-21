@@ -14,9 +14,8 @@
 
 @implementation MainWindowController
 @synthesize arr, pUtil;
-@synthesize appDragWindow;
+@synthesize appDragWindow, manifestWindow;
 @synthesize installsTView, unistallsTView, optionalsTView, manifestsTView;
-@synthesize installsArrController, uninstallsArrController, optionalsArrController;
 
 - (id)initWithWindow:(NSWindow *)window
 {
@@ -46,6 +45,7 @@
     [installsTView setDataSource:self];
     [unistallsTView setDataSource:self];
     [optionalsTView setDataSource:self];
+    [manifestsTView setDataSource:self];
     
 }
 
@@ -63,23 +63,23 @@
     [[appDragWindow window] makeKeyAndOrderFront:self];
 }
 
+- (IBAction)manifestsWindow:(id)sender {
+    
+    if (!manifestWindow) {
+        manifestWindow = [[ManifestsWindow alloc] initWithWindowNibName:@"ManifestsWindow"];
+    }
+    [[manifestWindow window] makeKeyAndOrderFront:self];
+}
+
 - (BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {
     
     if (tableView == manifestsTView) {
         return NO;
     }
     
-    NSDictionary *tvDict = [tableView infoForBinding:NSContentBinding];
-    NSArrayController *arrController = [tvDict valueForKey:NSObservedObjectKey];
-    NSMutableArray *optURIs = [NSMutableArray array];
-    
-    for (id optRec in [[arrController arrangedObjects] objectsAtIndexes:rowIndexes]) {
-
-        [optURIs addObject:[[optRec objectID] URIRepresentation]];
-    }
-    
-    [pboard setData:[NSArchiver archivedDataWithRootObject:optURIs] forType:@"SameWinApps"];
+    NSData *rows = [NSKeyedArchiver archivedDataWithRootObject:rowIndexes];
     [pboard declareTypes:[NSArray arrayWithObject:@"SameWinApps"] owner:self];
+    [pboard setData:rows forType:@"SameWinApps"];
     
     return YES;
     
@@ -87,31 +87,53 @@
 
 - (NSDragOperation)tableView:(NSTableView *)tableView validateDrop:(id<NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)dropOperation {
     
+    if (tableView == [info draggingSource]) {
+        return NSDragOperationNone;
+    }
+    
     [tableView setDropRow:row dropOperation:NSTableViewDropAbove];
-    return NSDragOperationMove;
+    return NSDragOperationGeneric;
 }
 
 - (BOOL)tableView:(NSTableView *)tableView acceptDrop:(id<NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)dropOperation {
     
-    NSDictionary *controlDict = [tableView infoForBinding:NSContentBinding];
-    NSArrayController *tViewController = [controlDict valueForKey:NSObservedObjectKey];
-    
-    NSManagedObjectContext *context = [[NSApp delegate] managedObjectContext];
-    NSPersistentStoreCoordinator *coordinator = [context persistentStoreCoordinator];
-    
-    
     NSPasteboard *pBoard = [info draggingPasteboard];
+    NSDictionary *targetDict = [tableView infoForBinding:NSContentBinding];
+    NSArrayController *targetArrCont = [targetDict valueForKey:NSObservedObjectKey];
+    
     if ([[pBoard types] containsObject:@"SameWinApps"]) {
-        NSArray *objURIs = [NSUnarchiver unarchiveObjectWithData:[pBoard dataForType:@"SameWinApps"]];
-        for (NSURL *objURI in objURIs) {
-            NSManagedObjectID *objID;
-            NSManagedObject *obj;
-            objID = [coordinator managedObjectIDForURIRepresentation:objURI];
-            obj = [context objectWithID:objID];
-            [tViewController addObject:obj];
-        }
+        
+        NSData *data = [pBoard dataForType:@"SameWinApps"];
+        NSIndexSet *indexes = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        NSTableView *sourceTView = [info draggingSource];
+        NSDictionary *sourceDict = [sourceTView infoForBinding:NSContentBinding];
+        NSArrayController *sourceArrCont = [sourceDict valueForKey:NSObservedObjectKey];
+        NSArray *objects = [[sourceArrCont arrangedObjects] objectsAtIndexes:indexes];
+        
+        [targetArrCont addObjects:objects];
+        [sourceArrCont removeObjectsAtArrangedObjectIndexes:indexes];
+        return YES;
     }
     
+    if ([[pBoard types] containsObject:@"Applications"]) {
+        NSData *data = [pBoard dataForType:@"Applications"];
+        NSArray *sourceStrings = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        for (NSString *temp in sourceStrings) {
+            OptionRecord *optRec = [[OptionRecord alloc] initWithOption:temp];
+            [targetArrCont addObject:optRec];
+        }
+        return YES;
+    }
+    
+    if ([[pBoard types] containsObject:@"Manifests"]) {
+        NSData *data = [pBoard dataForType:@"Manifests"];
+        NSArray *sourceStrings = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        for (NSString *temp in sourceStrings) {
+            OptionRecord *optRec = [[OptionRecord alloc] initWithOption:temp];
+            [targetArrCont addObject:optRec];
+        }
+        return YES;
+    }
     
     return NO;
 }

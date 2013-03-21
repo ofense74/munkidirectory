@@ -9,7 +9,9 @@
 #import <Cocoa/Cocoa.h>
 #import "PlistUtil.h"
 #import "ApplicationsDragWindow.h"
+#import "ManifestsWindow.h"
 #import "OptionRecord.h"
+#import "FileHandler.h"
 
 @interface MainWindowController : NSWindowController <NSTableViewDataSource> {
     
@@ -20,19 +22,17 @@
 @property PlistUtil *pUtil;
 
 @property (strong) ApplicationsDragWindow *appDragWindow;
+@property (strong) ManifestsWindow *manifestWindow;
 
 @property (weak) IBOutlet NSTableView *installsTView;
 @property (weak) IBOutlet NSTableView *unistallsTView;
 @property (weak) IBOutlet NSTableView *optionalsTView;
 @property (weak) IBOutlet NSTableView *manifestsTView;
 
-@property (strong) IBOutlet NSArrayController *installsArrController;
-@property (strong) IBOutlet NSArrayController *uninstallsArrController;
-@property (strong) IBOutlet NSArrayController *optionalsArrController;
-
 
 - (void)saveState;
 - (IBAction)applicationsWindow:(id)sender;
+- (IBAction)manifestsWindow:(id)sender;
 
 
 @end

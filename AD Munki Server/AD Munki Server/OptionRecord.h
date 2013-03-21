@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface OptionRecord : NSManagedObject
+@interface OptionRecord : NSObject
 
 @property (nonatomic) NSString *option;
 
-//- (OptionRecord *)initWithOption:(NSString *)inOption;
+- (OptionRecord *)initWithOption:(NSString *)inOption;
 
 @end
 
