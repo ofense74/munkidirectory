@@ -11,5 +11,10 @@ The **Munki** project is housed here:
 The executables can be downloaded here:
 <https://s3-eu-west-1.amazonaws.com/admunki/ADMunki.dmg>
 
+##Version 1.1
+Added drag and drop functionality for applications and manifests. Just click the "Application" and "Manifests" buttons in the upper right corner.
+
+Possibility for adding the AD-functionality to manifests. Choose "AD Manifests" under the "Tools" Menu.
+
 ##Version 1.01
 Fixed user interface.
