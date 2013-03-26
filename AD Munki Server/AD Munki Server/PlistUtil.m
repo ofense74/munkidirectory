@@ -57,7 +57,7 @@
 - (ConditionRecord *)getRecordForGroup:(NSString *)inGroup {
     
     //Checking against the group string
-    NSString *condString = [NSString stringWithFormat:@"ad_group_membership LIKE \"%@\"", inGroup];
+    NSString *condString = [NSString stringWithFormat:@"ad_group_membership CONTAINS \"%@\"", inGroup];
     
     for (NSMutableDictionary *dict in conditions) {
         if ([[dict valueForKey:@"condition"] isEqualToString:condString]) {
@@ -93,7 +93,7 @@
     //Stringify the Optionrecords
     NSMutableArray *stringedArray = [NSMutableArray array];
     for (ConditionRecord *dict in inArray) {
-        NSMutableDictionary *newDict = [NSMutableDictionary dictionaryWithObject:[NSString stringWithFormat:@"ad_group_membership LIKE \"%@\"", dict.group]
+        NSMutableDictionary *newDict = [NSMutableDictionary dictionaryWithObject:[NSString stringWithFormat:@"ad_group_membership CONTAINS \"%@\"", dict.group]
                                                                           forKey:@"condition"];
         int count = 0;
         
