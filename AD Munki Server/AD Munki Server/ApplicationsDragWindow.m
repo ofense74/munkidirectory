@@ -27,8 +27,7 @@
         NSString *thePath = [up stringByAppendingPathComponent:@"pkgsinfo"];
         
         [appRetriever getApps:thePath];
-        applications = [NSMutableArray array];
-        applications = [appRetriever applicationsArray];
+        applications = [NSMutableArray arrayWithArray:[appRetriever applicationsArray]];
         
     }
     
@@ -54,7 +53,7 @@
     NSMutableArray *arrData = [NSMutableArray array];
     NSUInteger currentIndex = [rowIndexes firstIndex];
     while (currentIndex != NSNotFound) {
-        NSString *theName = [(ApplicationInfo* )[applications objectAtIndex:currentIndex] appName];
+        NSString *theName = [(ApplicationInfo* )[[arrayController arrangedObjects] objectAtIndex:currentIndex] appName];
         [arrData addObject:theName];
         currentIndex = [rowIndexes indexGreaterThanIndex:currentIndex];
     }

@@ -11,7 +11,7 @@
 
 @interface ApplicationsDragWindow : NSWindowController <NSTableViewDataSource>
 
-@property NSMutableArray *applications;
+@property (copy) NSMutableArray *applications;
 @property (weak) IBOutlet NSTableView *tView;
 @property (strong) IBOutlet NSArrayController *arrayController;
 

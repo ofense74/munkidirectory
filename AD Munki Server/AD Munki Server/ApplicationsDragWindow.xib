@@ -70,7 +70,7 @@
 											<string key="NSFrameSize">{362, 408}</string>
 											<reference key="NSSuperview" ref="888237285"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="1010411764"/>
+											<reference key="NSNextKeyView" ref="448345759"/>
 											<string key="NSReuseIdentifierKey">_NS:13</string>
 											<bool key="NSEnabled">YES</bool>
 											<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -278,6 +278,7 @@
 									<string key="NSFrame">{{1, 466}, {374, 15}}</string>
 									<reference key="NSSuperview" ref="889991102"/>
 									<reference key="NSWindow"/>
+									<reference key="NSNextKeyView"/>
 									<string key="NSReuseIdentifierKey">_NS:60</string>
 									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 									<int key="NSsFlags">1</int>
@@ -305,7 +306,7 @@
 							<string key="NSFrame">{{-1, 0}, {364, 426}}</string>
 							<reference key="NSSuperview" ref="982201191"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="888237285"/>
+							<reference key="NSNextKeyView" ref="1010411764"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<int key="NSsFlags">133682</int>
 							<reference key="NSVScroller" ref="448345759"/>
@@ -325,7 +326,7 @@
 					<reference key="NSNextKeyView" ref="889991102"/>
 					<string key="NSReuseIdentifierKey">_NS:21</string>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {2560, 1418}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1920, 1058}}</string>
 				<string key="NSMinSize">{362, 441}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
@@ -394,10 +395,14 @@
 							<string key="NSLabel">value: arrangedObjects.appName</string>
 							<string key="NSBinding">value</string>
 							<string key="NSKeyPath">arrangedObjects.appName</string>
+							<dictionary key="NSOptions">
+								<boolean value="YES" key="NSConditionallySetsEditable"/>
+								<boolean value="YES" key="NSContinuouslyUpdatesValue"/>
+							</dictionary>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">28</int>
+					<int key="connectionID">39</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -698,7 +703,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">38</int>
+			<int key="maxID">39</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

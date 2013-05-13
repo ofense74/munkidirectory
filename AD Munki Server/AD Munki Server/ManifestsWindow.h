@@ -15,5 +15,6 @@
 @property (copy) NSMutableArray *arr;
 @property FileHandler *fileHandler;
 @property (weak) IBOutlet NSTableView *tableView;
+@property (strong) IBOutlet NSArrayController *arrayController;
 
 @end

@@ -13,7 +13,7 @@
 @end
 
 @implementation ManifestsWindow
-@synthesize fileHandler, arr, tableView;
+@synthesize fileHandler, arr, tableView, arrayController;
 
 - (id)initWithWindow:(NSWindow *)window
 {
@@ -41,7 +41,7 @@
     NSMutableArray *arrData = [NSMutableArray array];
     NSUInteger currentIndex = [rowIndexes firstIndex];
     while (currentIndex != NSNotFound) {
-        NSString *theName = [(Manifest* )[arr objectAtIndex:currentIndex] fileName];
+        NSString *theName = [(Manifest* )[[arrayController arrangedObjects] objectAtIndex:currentIndex] fileName];
         [arrData addObject:theName];
         currentIndex = [rowIndexes indexGreaterThanIndex:currentIndex];
     }

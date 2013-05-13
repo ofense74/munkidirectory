@@ -11,7 +11,7 @@
 
 @interface AppllicationsRetriever : NSObject
 
-@property NSMutableArray *applicationsArray;
+@property (copy) NSMutableArray *applicationsArray;
 
 - (AppllicationsRetriever *)initAppRetriever;
 - (void)getApps:(NSString *)path;
