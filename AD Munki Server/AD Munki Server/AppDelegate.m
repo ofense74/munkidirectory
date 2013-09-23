@@ -53,6 +53,43 @@
     
 }
 
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
+    
+    return YES;
+}
+
+- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
+    if (controller) {
+        NSAlert *alert = [NSAlert alertWithMessageText:@"Save your changes?"
+                                         defaultButton:@"Save"
+                                       alternateButton:@"Cancel"
+                                           otherButton:@"Don't save"
+                             informativeTextWithFormat:@"Do you wich to save before you quit?\nIf not it will revert to the last saved state next time you open the application."];
+        
+        [alert beginSheetModalForWindow:[controller window]
+                          modalDelegate:self
+                         didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:)
+                            contextInfo:nil];
+    }
+    return NSTerminateLater;
+    
+}
+
+- (void) alertDidEnd:(NSWindow *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+    
+    if (returnCode == NSAlertDefaultReturn) {
+        [controller saveState];
+        [NSApp replyToApplicationShouldTerminate:YES];
+    }
+    if (returnCode == NSAlertAlternateReturn) {
+        [NSApp replyToApplicationShouldTerminate:NO];
+    }
+    if (returnCode == NSAlertOtherReturn) {
+        [NSApp replyToApplicationShouldTerminate:YES];
+    }
+    
+}
+
 
 
 @end

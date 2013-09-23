@@ -65,7 +65,7 @@
                 for (int j = 0; j < [tempArrMem count]; j++) {
                     NSArray *divName = [[tempArrMem objectAtIndex:j] componentsSeparatedByString:@"\\"];
                     NSString *tempComp = [divName objectAtIndex:1];
-                    if ([tempComp isEqualTo:comp]) {
+                    if ([tempComp caseInsensitiveCompare:comp] == NSOrderedSame) {
                         groups = [groups arrayByAddingObject:[tempArrName objectAtIndex:i]];
                         break;
                     }
